@@ -2,100 +2,79 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Loja Salve Maria Imaculada - Artigos religiosos e acessórios">
     <title>Loja Salve Maria Imaculada</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://i.ibb.co/5Y3v6vK/favicon.png">
 </head>
 <body>
     <header>
         <h1>Loja Salve Maria Imaculada</h1>
     </header>
 
-    <div class="container">
-        <!-- Campo de pesquisa -->
-        <div class="pesquisa-container">
-            <input type="text" class="pesquisa-input" id="pesquisa-input" placeholder="Pesquisar produtos">
-            <button class="limpar-pesquisa" id="limpar-pesquisa" title="Limpar pesquisa">✕</button>
-            <button class="pesquisa-btn" id="pesquisa-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-            </button>
-            <div class="carrinho-icon" id="carrinho-icon">
-                🛒
-                <span class="carrinho-count" id="carrinho-count">0</span>
-            </div>
-        </div>
-
-        <div class="categorias">
-            <button class="categoria-btn active" data-categoria="todos">Todos</button>
-            <!-- As categorias serão geradas dinamicamente pelo JavaScript -->
-        </div>
-
-        <div class="produtos-grid" id="produtos-container">
-            <!-- Produtos serão carregados dinamicamente aqui -->
-            <div class="produto-card">
-                <div class="produto-imagem-container">
-                    <div class="placeholder-imagem">Carregando...</div>
+    <main class="container">
+        <div class="layout-container">
+            <aside class="categorias">
+                <button class="categoria-btn active" data-categoria="todos">Todos</button>
+            </aside>
+            <section class="main-content">
+                <div class="pesquisa-container">
+                    <input type="text" id="pesquisa-input" placeholder="Pesquisar produtos..." aria-label="Pesquisar produtos">
+                    <button id="pesquisa-btn" aria-label="Pesquisar produtos">🔍</button>
+                    <button id="limpar-pesquisa" aria-label="Limpar pesquisa">✕</button>
                 </div>
-                <div class="produto-info">
-                    <div class="produto-titulo">Carregando produtos...</div>
-                    <div class="produto-atributos">
-                        <p>Aguarde enquanto carregamos nosso catálogo</p>
+                <div class="produtos-grid" id="produtos-container">
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 2rem;">
+                        <p>Carregando produtos...</p>
                     </div>
-                    <div class="produto-preco">R$ 0,00</div>
-                    <button class="add-carrinho" disabled>Carregando</button>
                 </div>
-            </div>
+            </section>
         </div>
-    </div>
 
-    <!-- Overlay do carrinho -->
+        <div class="carrinho-icon" id="carrinho-icon">
+            🛒
+            <span class="carrinho-count" id="carrinho-count">0</span>
+        </div>
+    </main>
+
     <div class="overlay" id="overlay"></div>
 
-    <!-- Sidebar do carrinho -->
-    <div class="carrinho-sidebar" id="carrinho-sidebar">
+    <aside class="carrinho-sidebar" id="carrinho-sidebar">
         <div class="carrinho-header">
             <h2>Seu Carrinho</h2>
-            <button id="fechar-carrinho">✕</button>
+            <button id="fechar-carrinho" aria-label="Fechar carrinho">✕</button>
         </div>
-        
         <div class="carrinho-content" id="carrinho-content">
             <div class="carrinho-vazio">Seu carrinho está vazio</div>
-            <!-- Itens do carrinho serão adicionados aqui -->
         </div>
-        
         <div class="carrinho-footer">
             <div class="carrinho-total">
                 <span>Total:</span>
-                <span>R$ <span id="carrinho-total">0,00</span></span>
+                <span id="carrinho-total">R$ 0,00</span>
             </div>
-            <button class="whatsapp-btn" id="finalizar-pedido">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                </svg>
+            <button class="whatsapp-btn" id="finalizar-pedido" aria-label="Finalizar pedido via WhatsApp">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.16.71 4.16 1.91 5.78l-1.88 5.61 5.78-1.88c1.62 1.1 3.62 1.75 5.78 1.75 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm3.81 13.69c-.22.62-.88 1.06-1.53 1.19-.66.13-1.53.25-2.22-.31-.84-.69-1.97-1.84-2.66-2.66-.69-.81-1.41-1.78-1.41-2.75s.81-1.53 1.09-1.84c.28-.31.62-.38.88-.38.22 0 .44.06.62.19.19.13.44.31.62.5.44.44 1.09 1.06 1.19 1.19.13.13.19.31.13.5-.06.19-.13.38-.31.56-.19.19-.38.38-.56.56-.19.19-.38.38-.19.62.44.81 1.28 1.66 2.03 2.22.25.19.5.25.75.13.25-.13.56-.31.88-.50.25-.19.5-.19.69-.06.19.13 1.19.62 1.41.75.25.13.31.31.25.5z"/></svg>
                 Finalizar Pedido
             </button>
         </div>
-    </div>
+    </aside>
 
-    <!-- Modal de confirmação do pedido -->
     <div class="modal-overlay" id="modal-overlay">
         <div class="modal-container">
             <h3>Informações para o Pedido</h3>
             <form id="dados-cliente">
                 <div class="form-group">
                     <label for="nome-cliente">Seu Nome Completo:</label>
-                    <input type="text" id="nome-cliente" required>
+                    <input type="text" id="nome-cliente" required aria-required="true">
                 </div>
                 <div class="form-group">
                     <label for="telefone-cliente">WhatsApp (opcional):</label>
-                    <input type="tel" id="telefone-cliente" placeholder="(00) 00000-0000">
+                    <input type="tel" id="telefone-cliente" placeholder="(99) 99999-9999">
                 </div>
                 <div class="form-group">
                     <label for="observacoes">Observações:</label>
-                    <textarea id="observacoes" rows="3" placeholder="Alguma informação adicional sobre seu pedido..."></textarea>
+                    <textarea id="observacoes"></textarea>
                 </div>
                 <div class="modal-buttons">
                     <button type="button" class="btn-cancelar" id="cancelar-pedido">Cancelar</button>
@@ -105,7 +84,6 @@
         </div>
     </div>
 
-    <!-- Feedback para o usuário -->
     <div class="feedback" id="feedback"></div>
 
     <script src="script.js"></script>
