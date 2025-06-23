@@ -50,20 +50,20 @@ header h1 {
 }
 
 .container {
-    max-width: 100%;
+    max-width: 1200px;
     margin: 1rem auto;
     padding: 0 0.8rem;
 }
 
 .layout-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 1rem;
-    flex-direction: column;
 }
 
 @media (min-width: 768px) {
     .layout-container {
-        flex-direction: row;
+        grid-template-columns: 200px 1fr;
     }
 }
 
@@ -72,7 +72,6 @@ header h1 {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
-    margin-bottom: 1rem;
     overflow-x: auto;
     padding: 0.5rem 0;
     -webkit-overflow-scrolling: touch;
@@ -82,12 +81,15 @@ header h1 {
     .categorias {
         flex-direction: column;
         width: 200px;
-        flex-shrink: 0;
         overflow-x: visible;
-        padding: 0;
+        padding: 1rem;
         background-color: var(--cor-secundaria);
         border-radius: var(--borda-radius);
-        box-shadow: var(--soma);
+        box-shadow: var(--sombra);
+        position: sticky;
+        top: 80px;
+        height: calc(100vh - 100px);
+        overflow-y: auto;
     }
 }
 
@@ -102,7 +104,7 @@ header h1 {
 
 @media (min-width: 768px) {
     .categorias::-webkit-scrollbar {
-        display: none;
+        width: 6px;
     }
 }
 
