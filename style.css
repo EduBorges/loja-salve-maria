@@ -1,3 +1,6 @@
+Mantive o CSS anterior, pois o problema não parece estar relacionado ao estilo. O layout responsivo e o carrinho fixo já estão otimizados.
+
+```css
 :root {
     --cor-primaria: #6fbce3;
     --cor-primaria-escura: #4a9bc8;
