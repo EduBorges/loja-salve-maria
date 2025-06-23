@@ -187,7 +187,7 @@
     "MATERIAL": "resina",
     "MODELO": "santo",
     "COR": "Colorido",
-    "TAMANHO": "15",
+    "TAMANHO": "15cm",
     "QTD": 1,
     "PRECO": 45,
     "IMAGES": [
@@ -201,7 +201,7 @@
     "MATERIAL": "resina",
     "MODELO": "santo",
     "COR": "Colorido",
-    "TAMANHO": "15",
+    "TAMANHO": "15cm",
     "QTD": 1,
     "PRECO": 35,
     "IMAGES": [
@@ -215,7 +215,7 @@
     "MATERIAL": "resina",
     "MODELO": "santo",
     "COR": "Colorido",
-    "TAMANHO": "15",
+    "TAMANHO": "15cm",
     "QTD": 1,
     "PRECO": 65,
     "IMAGES": [
@@ -229,7 +229,7 @@
     "MATERIAL": "resina",
     "MODELO": "santo",
     "COR": "Colorido",
-    "TAMANHO": "15",
+    "TAMANHO": "15cm",
     "QTD": 1,
     "PRECO": 34,
     "IMAGES": [
@@ -243,7 +243,7 @@
     "MATERIAL": "resina",
     "MODELO": "santo",
     "COR": "Colorido",
-    "TAMANHO": "15",
+    "TAMANHO": "15cm",
     "QTD": 1,
     "PRECO": 39,
     "IMAGES": [
@@ -257,7 +257,7 @@
     "MATERIAL": "resina",
     "MODELO": "santo",
     "COR": "Colorido",
-    "TAMANHO": "15",
+    "TAMANHO": "15cm",
     "QTD": 1,
     "PRECO": 78,
     "IMAGES": [
@@ -271,7 +271,7 @@
     "MATERIAL": "resina",
     "MODELO": "santo",
     "COR": "Colorido",
-    "TAMANHO": "20",
+    "TAMANHO": "20cm",
     "QTD": 1,
     "PRECO": 89,
     "IMAGES": [
@@ -285,7 +285,7 @@
     "MATERIAL": "resina",
     "MODELO": "santo",
     "COR": "Colorido",
-    "TAMANHO": "15",
+    "TAMANHO": "15cm",
     "QTD": 1,
     "PRECO": 69,
     "IMAGES": [
@@ -299,7 +299,7 @@
     "MATERIAL": "resina",
     "MODELO": "santo",
     "COR": "Colorido",
-    "TAMANHO": "15",
+    "TAMANHO": "15cm",
     "QTD": 1,
     "PRECO": 130,
     "IMAGES": [
@@ -313,7 +313,7 @@
     "MATERIAL": "resina",
     "MODELO": "santo",
     "COR": "Colorido",
-    "TAMANHO": "15",
+    "TAMANHO": "15cm",
     "QTD": 1,
     "PRECO": 89,
     "IMAGES": [
@@ -322,12 +322,12 @@
     "CATEGORIA": "IMAGENS"
   },
   {
-    "SKU": "15019",
+    "SKU": "15020",
     "DESCRICAO": "São Jorge",
     "MATERIAL": "resina",
     "MODELO": "santo",
     "COR": "Colorido",
-    "TAMANHO": "15",
+    "TAMANHO": "15cm",
     "QTD": 1,
     "PRECO": 89,
     "IMAGES": [
@@ -341,7 +341,7 @@
     "MATERIAL": "resina",
     "MODELO": "santo",
     "COR": "Colorido",
-    "TAMANHO": "15",
+    "TAMANHO": "15cm",
     "QTD": 1,
     "PRECO": 68,
     "IMAGES": [
@@ -355,7 +355,7 @@
     "MATERIAL": "resina",
     "MODELO": "santo",
     "COR": "Colorido",
-    "TAMANHO": "15",
+    "TAMANHO": "15cm",
     "QTD": 1,
     "PRECO": 68,
     "IMAGES": [
