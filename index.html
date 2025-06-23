@@ -12,6 +12,7 @@
     </header>
 
     <div class="container">
+        <!-- Campo de pesquisa -->
         <div class="pesquisa-container">
             <input type="text" class="pesquisa-input" id="pesquisa-input" placeholder="Pesquisar produtos">
             <button class="limpar-pesquisa" id="limpar-pesquisa" title="Limpar pesquisa">✕</button>
@@ -28,9 +29,12 @@
         </div>
 
         <div class="categorias">
-            </div>
+            <button class="categoria-btn active" data-categoria="todos">Todos</button>
+            <!-- As categorias serão geradas dinamicamente pelo JavaScript -->
+        </div>
 
         <div class="produtos-grid" id="produtos-container">
+            <!-- Produtos serão carregados dinamicamente aqui -->
             <div class="produto-card">
                 <div class="produto-imagem-container">
                     <div class="placeholder-imagem">Carregando...</div>
@@ -47,15 +51,21 @@
         </div>
     </div>
 
+    <!-- Overlay do carrinho -->
     <div class="overlay" id="overlay"></div>
 
+    <!-- Sidebar do carrinho -->
     <div class="carrinho-sidebar" id="carrinho-sidebar">
         <div class="carrinho-header">
             <h2>Seu Carrinho</h2>
             <button id="fechar-carrinho">✕</button>
         </div>
+        
         <div class="carrinho-content" id="carrinho-content">
-            </div>
+            <div class="carrinho-vazio">Seu carrinho está vazio</div>
+            <!-- Itens do carrinho serão adicionados aqui -->
+        </div>
+        
         <div class="carrinho-footer">
             <div class="carrinho-total">
                 <span>Total:</span>
@@ -70,6 +80,7 @@
         </div>
     </div>
 
+    <!-- Modal de confirmação do pedido -->
     <div class="modal-overlay" id="modal-overlay">
         <div class="modal-container">
             <h3>Informações para o Pedido</h3>
@@ -77,6 +88,10 @@
                 <div class="form-group">
                     <label for="nome-cliente">Seu Nome Completo:</label>
                     <input type="text" id="nome-cliente" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone-cliente">WhatsApp (opcional):</label>
+                    <input type="tel" id="telefone-cliente" placeholder="(00) 00000-0000">
                 </div>
                 <div class="form-group">
                     <label for="observacoes">Observações:</label>
@@ -90,6 +105,7 @@
         </div>
     </div>
 
+    <!-- Feedback para o usuário -->
     <div class="feedback" id="feedback"></div>
 
     <script src="script.js"></script>
