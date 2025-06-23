@@ -54,6 +54,7 @@ function gerarBotoesCategoria() {
         btn.className = 'categoria-btn';
         btn.setAttribute('data-categoria', categoria);
         btn.textContent = categoria.charAt(0).toUpperCase() + categoria.slice(1).toLowerCase();
+        btn.setAttribute('aria-label', `Filtrar por ${categoria}`);
         categoriasContainer.appendChild(btn);
     });
     
@@ -74,18 +75,16 @@ function pesquisarProdutos() {
     renderizarProdutos();
 }
 
-// Função para renderizar produtos (com suporte à pesquisa)
+// Função para renderizar produtos
 function renderizarProdutos() {
     produtosContainer.innerHTML = '';
     
     let produtosFiltrados = produtos;
     
-    // Filtrar por categoria
     if (categoriaAtiva !== 'todos') {
         produtosFiltrados = produtosFiltrados.filter(p => p.CATEGORIA === categoriaAtiva);
     }
     
-    // Filtrar por termo de pesquisa
     if (termoPesquisa) {
         produtosFiltrados = produtosFiltrados.filter(p => 
             p.DESCRICAO.toLowerCase().includes(termoPesquisa) ||
@@ -117,6 +116,7 @@ function renderizarProdutos() {
         const imagem = document.createElement('img');
         imagem.className = 'produto-imagem';
         imagem.alt = produto.DESCRICAO;
+        imagem.loading = 'lazy';
         
         const placeholder = document.createElement('div');
         placeholder.className = 'placeholder-imagem';
@@ -153,7 +153,7 @@ function renderizarProdutos() {
                     <p><strong>SKU:</strong> ${produto.SKU}</p>
                 </div>
                 <div class="produto-preco">R$ ${produto.PRECO.toFixed(2).replace('.', ',')}</div>
-                <button class="add-carrinho" data-sku="${produto.SKU}">Adicionar ao Carrinho</button>
+                <button class="add-carrinho" data-sku="${produto.SKU}" aria-label="Adicionar ${produto.DESCRICAO} ao carrinho">Adicionar ao Carrinho</button>
             </div>
         `;
         
@@ -176,14 +176,17 @@ function adicionarAoCarrinho(sku) {
     if (!produto) return;
 
     const itemExistente = carrinho.find(item => item.SKU === sku);
-    
+    const novaQuantidade = itemExistente ? itemExistente.quantidade + 1 : 1;
+
+    if (novaQuantidade > produto.QTD) {
+        mostrarFeedback(`Estoque insuficiente! Apenas ${produto.QTD} unidade(s) disponível(is).`, 'error');
+        return;
+    }
+
     if (itemExistente) {
-        itemExistente.quantidade += 1;
+        itemExistente.quantidade = novaQuantidade;
     } else {
-        carrinho.push({
-            ...produto,
-            quantidade: 1
-        });
+        carrinho.push({ ...produto, quantidade: 1 });
     }
 
     atualizarCarrinho();
@@ -198,15 +201,20 @@ function removerDoCarrinho(sku) {
 
 function atualizarQuantidade(sku, novaQuantidade) {
     const item = carrinho.find(item => item.SKU === sku);
-    if (item) {
-        item.quantidade = Math.max(1, novaQuantidade);
+    const produto = produtos.find(p => p.SKU === sku);
+    if (item && produto) {
+        if (novaQuantidade > produto.QTD) {
+            mostrarFeedback(`Estoque insuficiente! Apenas ${produto.QTD} unidade(s) disponível(is).`, 'error');
+            item.quantidade = produto.QTD;
+        } else {
+            item.quantidade = Math.max(1, novaQuantidade);
+        }
         atualizarCarrinho();
     }
 }
 
 // Função para atualizar o carrinho
 function atualizarCarrinho() {
-    // Tenta carregar o carrinho do localStorage
     try {
         const storedCarrinho = localStorage.getItem('carrinho');
         if (storedCarrinho) {
@@ -217,13 +225,11 @@ function atualizarCarrinho() {
         localStorage.removeItem('carrinho');
     }
 
-    // Verifica se carrinho existe, se não, inicializa como array vazio
     if (typeof carrinho === 'undefined') {
         carrinho = [];
     }
     
     try {
-        // Tenta salvar no localStorage (se estiver em ambiente browser)
         if (typeof localStorage !== 'undefined') {
             localStorage.setItem('carrinho', JSON.stringify(carrinho));
         }
@@ -231,25 +237,20 @@ function atualizarCarrinho() {
         console.error('Erro ao acessar localStorage:', e);
     }
 
-    // Atualiza contador do carrinho
     const totalItens = carrinho.reduce((total, item) => total + (item.quantidade || 1), 0);
     carrinhoCount.textContent = totalItens;
     carrinhoCount.style.display = totalItens > 0 ? 'flex' : 'none';
 
-    // Limpa conteúdo anterior
     carrinhoContent.innerHTML = '';
 
-    // Se carrinho vazio
     if (carrinho.length === 0) {
         carrinhoContent.innerHTML = '<div class="carrinho-vazio">Seu carrinho está vazio</div>';
         carrinhoTotal.textContent = '0,00';
         return;
     }
 
-    // Calcula total
     let total = 0;
     
-    // Renderiza cada item do carrinho
     carrinho.forEach(item => {
         total += (item.PRECO || 0) * (item.quantidade || 1);
         
@@ -264,6 +265,7 @@ function atualizarCarrinho() {
             img.className = 'carrinho-item-img';
             img.alt = item.DESCRICAO || 'Produto sem descrição';
             img.src = item.IMAGES[0];
+            img.loading = 'lazy';
             
             img.onerror = () => {
                 imgContainer.innerHTML = '<div class="placeholder-imagem">Sem imagem</div>';
@@ -286,10 +288,10 @@ function atualizarCarrinho() {
             </div>
             <div class="carrinho-item-preco">R$ ${((item.PRECO || 0) * (item.quantidade || 1)).toFixed(2).replace('.', ',')}</div>
             <div class="carrinho-item-controles">
-                <button class="quantidade-btn" data-sku="${item.SKU || ''}" data-action="decrementar">-</button>
-                <input type="number" class="quantidade-input" value="${item.quantidade || 1}" min="1" data-sku="${item.SKU || ''}">
-                <button class="quantidade-btn" data-sku="${item.SKU || ''}" data-action="incrementar">+</button>
-                <span class="remover-item" data-sku="${item.SKU || ''}">Remover</span>
+                <button class="quantidade-btn" data-sku="${item.SKU || ''}" data-action="decrementar" aria-label="Diminuir quantidade">-</button>
+                <input type="number" class="quantidade-input" value="${item.quantidade || 1}" min="1" max="${item.QTD || 1}" data-sku="${item.SKU || ''}" aria-label="Quantidade do item">
+                <button class="quantidade-btn" data-sku="${item.SKU || ''}" data-action="incrementar" aria-label="Aumentar quantidade">+</button>
+                <span class="remover-item" data-sku="${item.SKU || ''}" role="button" aria-label="Remover ${item.DESCRICAO} do carrinho">Remover</span>
             </div>
         `;
         
@@ -297,10 +299,8 @@ function atualizarCarrinho() {
         carrinhoContent.appendChild(carrinhoItem);
     });
     
-    // Atualiza total
     carrinhoTotal.textContent = total.toFixed(2).replace('.', ',');
     
-    // Adiciona event listeners aos controles de quantidade
     document.querySelectorAll('.quantidade-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const sku = e.target.getAttribute('data-sku');
@@ -430,6 +430,14 @@ btnCancelar.addEventListener('click', function() {
 // Fechar modal ao clicar fora
 modalOverlay.addEventListener('click', function(e) {
     if (e.target === modalOverlay) {
+        modalOverlay.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+});
+
+// Fechar modal com tecla Esc
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalOverlay.style.display === 'flex') {
         modalOverlay.style.display = 'none';
         document.body.style.overflow = '';
     }
