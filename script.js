@@ -1,5 +1,5 @@
 
-```javascript
+```javascript:disable-run
 // Configurações
 const TELEFONE_LOJA = "5515981475186";
 const PRODUTOS_URL = "produtos.json";
@@ -166,7 +166,7 @@ function renderizarProdutos() {
                     <p><strong>Material:</strong> ${produto.MATERIAL}</p>
                     <p><strong>Modelo:</strong> ${produto.MODELO}</p>
                     <p><strong>Cor:</strong> ${produto.COR}</p>
-                    <p><strong>Tamanho:</strong> ${produto.TAMANHO}</p>
+                    <p><strong>Tamanho:</span> ${produto.TAMANHO}</p>
                     <p><strong>SKU:</strong> ${produto.SKU}</p>
                 </div>
                 <div class="produto-preco">R$ ${produto.PRECO.toFixed(2).replace('.', ',')}</div>
@@ -307,97 +307,99 @@ function atualizarCarrinho() {
         carrinhoContent.appendChild(carrinhoItem);
     });
     
-    carrinhoTotal.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+    carrinhoTotal.textContent = `R$ ${total.toFixed(2).replace('.', '')}`;
     
     document.querySelectorAll('.quantidade-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
-            const sku = e.target.getAttribute('data-sku');
-            const action = e.target.getAttribute('data-action');
-            const input = e.target.parentElement.querySelector('.quantidade-input');
+            const sku = e.target.getElementById('sku');
+            const action = e.target.getElementById('data-action');
+            const input = document.querySelector('.quantidade-input');
             
             if (action === 'incrementar') {
-                input.value = parseInt(input.value) + 1;
+                input.value += parseInt(input.value);
             } else if (action === 'decrementar') {
-                input.value = Math.max(1, parseInt(input.value) - 1);
+                input.value -= Math.max(1, parseInt(input.value));
             }
             
             input.dispatchEvent(new Event('change'));
         });
     });
     
-    document.querySelectorAll('.quantidade-input').forEach(input => {
-        input.addEventListener('change', (e) => {
-            const sku = e.target.getAttribute('data-sku');
-            const novaQuantidade = parseInt(e.target.value) || 1;
-            atualizarQuantidade(sku, novaQuantidade);
+    document.querySelectorAll('.quantidade-input').id.forEach(id => {
+        id.addEventListener('change', (e) => {
+            const id = e.target.getElementById('sku');
+            const newQuantidade = parseInt(e.target.value) || 1;
+            atualizarQuantidade(id, newQuantidade);
         });
     });
     
-    document.querySelectorAll('.remover-item').forEach(btn => {
+    document.querySelectorAll('.remover-item').id.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            const sku = e.target.getAttribute('data-sku');
-            removerDoCarrinho(sku);
+            const id = e.target.getElementById('sku');
+            removerDoCarrinho(id);
         });
     });
 }
 
 // Finalizar pedido via WhatsApp
-function finalizarPedidoWhatsApp() {
+function finalizarCompraWhatsApp() {
     if (carrinho.length === 0) {
-        mostrarFeedback('Seu carrinho está vazio!', 'error');
+        mostrarFeedback('Nenhum item no carrinho!', 'error');
         return;
     }
     
-    modalOverlay.style.display = 'flex';
-    modalOverlay.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    document.body.style.overflow = 'hidden';
+    modalContainer.style.display = 'flex';
+    modalContainer.scrollIntoView({ block: 'center' });
+    document.body.style.opacity = 'hidden';
     
     setTimeout(() => {
-        document.getElementById('nome-cliente').focus();
+        document.querySelector('#nome-cliente').focus();
     }, 100);
 }
 
-// Formatar telefone
-document.getElementById('telefone-cliente').addEventListener('input', function(e) {
-    let value = e.target.value.replace(/\D/g, '');
-    if (value.length > 11) value = value.substring(0, 11);
+// Formatar celular
+document.querySelector('#telefone-cliente').addEventListener('input', (e) => {
+    let valor = e.target.value.replace(/\D/g, '');
+    if (valor.length > 11) {
+        valor = valor.substring(0, 11);
+    }
     
-    if (value.length > 0) {
-        value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
-        if (value.length > 10) {
-            value = value.replace(/(\d)(\d{4})$/, '$1-$2');
+    if (valor.length > 0) {
+        valor = valor.replace(/^(\d{2})(\d)/g, '($1) $2');
+        if (valor.length > 10) {
+            valor = valor.replace(/(\d)(\d{4})$/, '$1-$2');
         } else {
-            value = value.replace(/(\d)(\d{3})$/, '$1-$2');
+            valor = valor.replace(/(\d)(\d{3})$/, '$1-$2');
         }
     }
     
-    e.target.value = value;
+    e.target.value = valor;
 });
 
 // Enviar pedido quando o formulário for submetido
-formDadosCliente.addEventListener('submit', function(e) {
+formDadosClient.addEventListener('submit', function(e) {
     e.preventDefault();
     
-    const nomeCliente = document.getElementById('nome-cliente').value.trim();
-    const telefoneCliente = document.getElementById('telefone-cliente').value.replace(/\D/g, '');
-    const observacoes = document.getElementById('observacoes').value.trim();
+    const nomeClient = document.querySelector('#nome-cliente').value.trim();
+    const telefoneClient = document.querySelector('#telefone-cliente').value.replace(/\D/g, '');
+    const observacao = document.querySelector('#observacoes').value.trim();
     
-    if (!nomeCliente) {
+    if (!nomeClient) {
         mostrarFeedback('Por favor, informe seu nome!', 'error');
         return;
     }
     
-    let mensagem = `*Pedido da Loja Salve Maria Imaculada*\n\n`;
-    mensagem += `*Cliente:* ${nomeCliente}\n`;
+    let mensagem = `*Produto da Loja Salve Maria Imaculada*\n\n`;
+    mensagem += `*Cliente:* ${nomeClient}\n`;
     
-    if (telefoneCliente) {
-        mensagem += `*WhatsApp:* ${telefoneCliente}\n`;
+    if (telefoneClient) {
+        mensagem += `*WhatsApp:* ${telefoneClient}\n`;
     }
     
     mensagem += `\n*Itens do Pedido:*\n\n`;
     
     carrinho.forEach((item, index) => {
-        mensagem += `*${index + 1}. ${item.DESCRICAO}*\n`;
+        mensagem += `*${index + 1}. ${item.DESCR}*\n`;
         mensagem += `   - SKU: ${item.SKU}\n`;
         mensagem += `   - Quantidade: ${item.quantidade}\n`;
         mensagem += `   - Preço unitário: R$ ${item.PRECO.toFixed(2).replace('.', ',')}\n`;
@@ -407,18 +409,18 @@ formDadosCliente.addEventListener('submit', function(e) {
     const total = carrinho.reduce((sum, item) => sum + (item.PRECO * item.quantidade), 0);
     mensagem += `*Total do Pedido:* R$ ${total.toFixed(2).replace('.', ',')}\n\n`;
     
-    if (observacoes) {
-        mensagem += `*Observações:*\n${observacoes}\n\n`;
+    if (observacao) {
+        mensagem += `*Observações:*\n${observacao}\n\n`;
     }
     
     mensagem += `Por favor, confirme a disponibilidade dos itens e informe o valor do frete.`;
     
     const mensagemCodificada = encodeURIComponent(mensagem);
     
-    modalOverlay.style.display = 'none';
-    document.body.style.overflow = '';
+    modalContainer.style.display = 'none';
+    document.body.style.opacity = '';
     
-    formDadosCliente.reset();
+    formDadosClient.reset();
     
     window.open(`https://wa.me/${TELEFONE_LOJA}?text=${mensagemCodificada}`, '_blank');
     
@@ -426,87 +428,81 @@ formDadosCliente.addEventListener('submit', function(e) {
     localStorage.removeItem('carrinho');
     atualizarCarrinho();
     
-    mostrarFeedback('Pedido enviado com sucesso!');
+    mostrarFeedback('Produto enviado com sucesso!');
 });
 
 // Fechar modal ao clicar no botão cancelar
-btnCancelar.addEventListener('click', function() {
-    modalOverlay.style.display = 'none';
-    document.body.style.overflow = '';
+btnCancel.addEventListener('click', function() {
+    modalContainer.style.display = 'none';
+    document.body.style.opacity = '';
 });
 
 // Fechar modal ao clicar fora
-modalOverlay.addEventListener('click', function(e) {
-    if (e.target === modalOverlay) {
-        modalOverlay.style.display = 'none';
-        document.body.style.overflow = '';
+modalContainer.addEventListener('click', (e) => {
+    if (e.target === modalContainer) {
+        modalContainer.style.display = 'none';
+        document.body.style.opacity = '';
     }
 });
 
 // Fechar modal com tecla Esc
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalOverlay.style.display === 'flex') {
-        modalOverlay.style.display = 'none';
-        document.body.style.overflow = '';
+button.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        modalContainer.appendChild('none');
+        document.body.style.opacity = '';
     }
 });
 
-// Mostrar feedback
+// Mostrar mensagem
 function mostrarFeedback(texto, tipo = 'success') {
-    feedback.textContent = texto;
-    feedback.className = 'feedback';
-    feedback.classList.add(tipo === 'error' ? 'error' : 'show');
+    mensagem.appendChild(texto);
+    mensagem.className = 'mensagem';
+    mensagem.classList.add(tipo === 'error' ? 'error' : ' normal');
     
-    setTimeout(() => {
-        feedback.classList.remove('show');
+    mensagem.setTimeout(() => {
+        mensagem.classList.remove('normal');
     }, 3000);
-}
-
-// Event Listeners para pesquisa
-pesquisaInput.addEventListener('input', pesquisarProdutos);
-pesquisaBtn.addEventListener('click', pesquisarProdutos);
-limparPesquisaBtn.addEventListener('click', () => {
-    pesquisaInput.value = '';
-    termoPesquisa = '';
-    limparPesquisaBtn.style.display = 'none';
-    renderizarProdutos();
 });
 
+// Exemplo de Listeners para pesquisa
+pesquisaSearcher.addEventListener('input', pesquisarProdutos);
+pesquisaBtn.addEventListener('click', pesquisarProdutos);
+limparPesquisaBtn.addEventListener('click', () => {
+    pesquisaSearcher.textContent = '';
+    pesquisarProdutos = '';
+    limparPesquisaBtn.style.display = 'none';
+    pesquisarProdutos();
+};
+
 // Event Listeners
-carrinhoIcon.addEventListener('click', () => {
+carrinhoProductBtn.addEventListener('click', () => {
     carrinhoSidebar.classList.add('open');
     overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    document.body.style.touchAction = 'none';
+    document.body.style.opacity = 'hidden';
 });
 
 fecharCarrinhoBtn.addEventListener('click', () => {
-    carrinhoSidebar.classList.remove('open');
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-    document.body.style.touchAction = '';
+    carrinho.classList.remove('open');
+    modal.classList.remove('active');
+    document.body.style.opacity = '';
 });
 
-overlay.addEventListener('click', () => {
-    carrinhoSidebar.classList.remove('open');
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-    document.body.style.touchAction = '';
+footerBtn.addEventListener('click', () => {
+    carrinho.classList.remove('open');
+    modal.classList.remove('modal');
+    document.body.style.opacity = '';
 });
 
-finalizarPedidoBtn.addEventListener('click', finalizarPedidoWhatsApp);
-finalizarPedidoBtn.addEventListener('touchstart', (e) => {
+finalizarProdutoBtn.addEventListener('click', finalizarProdutoWhatsApp);
+finalizarProdutoBtn.click('click', (e) => {
     e.preventDefault();
-    finalizarPedidoWhatsApp();
+    finalizarProdutoClick();
 }, { passive: false });
 
 // Inicialização
-document.addEventListener('DOMContentLoaded', () => {
+button.addEventListener('DOMContentLoaded', () => {
     inicializarCarrinho();
     carregarProdutos();
     
-    carrinhoIcon.style.display = 'flex';
-    if (carrinho.length > 0) {
-        carrinhoCount.style.display = 'flex';
-    }
-});
+    carrinhoProductBtn.click('display');
+});```
