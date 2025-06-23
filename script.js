@@ -1,11 +1,6 @@
-Corrigi a função ```:disable-run
-`carregarProdutos`
-``` e adicionei logs detalhados para depuração. Também ajustei a lógica de renderização para exibir erros claros.
-
-```javascript
 // Configurações
 const TELEFONE_LOJA = "5515981475186";
-const PRODUTOS_URL = "./produtos.json"; // Caminho explícito relativo
+const PRODUTOS_URL = "produtos.json";
 
 // Estado da aplicação
 let produtos = [];
@@ -32,77 +27,38 @@ const pesquisaInput = document.getElementById('pesquisa-input');
 const pesquisaBtn = document.getElementById('pesquisa-btn');
 const limparPesquisaBtn = document.getElementById('limpar-pesquisa');
 
-// Inicializar carrinho do localStorage
-function inicializarCarrinho() {
-    try {
-        const storedCarrinho = localStorage.getItem('carrinho');
-        if (storedCarrinho) {
-            carrinho = JSON.parse(storedCarrinho);
-            console.log('Carrinho carregado do localStorage:', carrinho);
-        }
-    } catch (e) {
-        console.error('Erro ao carregar carrinho do localStorage:', e);
-        carrinho = [];
-        localStorage.removeItem('carrinho');
-    }
-    atualizarCarrinho();
-}
-
 // Função para carregar produtos
 async function carregarProdutos() {
-    console.log('Iniciando carregamento de produtos...');
-    produtosContainer.innerHTML = `
-        <div style="grid-column: 1 / -1; text-align: center; padding: 2rem;">
-            <p>Carregando produtos, por favor aguarde...</p>
-        </div>
-    `;
     try {
         const response = await fetch(PRODUTOS_URL);
-        console.log('Resposta da fetch:', response);
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        console.log('Dados recebidos:', data);
-        if (!Array.isArray(data) || data.length === 0) {
-            throw new Error('Dados inválidos ou lista de produtos vazia');
-        }
-        produtos = data;
+        produtos = await response.json();
         gerarBotoesCategoria();
         renderizarProdutos();
+        atualizarCarrinho();
     } catch (error) {
         console.error('Erro ao carregar produtos:', error);
-        produtosContainer.innerHTML = `
-            <div style="grid-column: 1 / -1; text-align: center; padding: 2rem;">
-                <p>Falha ao carregar produtos. Verifique sua conexão ou tente novamente mais tarde.</p>
-            </div>
-        `;
         mostrarFeedback('Erro ao carregar produtos', 'error');
     }
 }
 
 // Função para gerar os botões de categoria dinamicamente
 function gerarBotoesCategoria() {
-    console.log('Gerando botões de categoria...');
     const todosBtn = document.querySelector('.categoria-btn[data-categoria="todos"]');
     categoriasContainer.innerHTML = '';
     categoriasContainer.appendChild(todosBtn);
     
     const categorias = [...new Set(produtos.map(p => p.CATEGORIA))];
-    console.log('Categorias encontradas:', categorias);
     
     categorias.forEach(categoria => {
         const btn = document.createElement('button');
         btn.className = 'categoria-btn';
         btn.setAttribute('data-categoria', categoria);
         btn.textContent = categoria.charAt(0).toUpperCase() + categoria.slice(1).toLowerCase();
-        btn.setAttribute('aria-label', `Filtrar por ${categoria}`);
         categoriasContainer.appendChild(btn);
     });
     
     document.querySelectorAll('.categoria-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-            console.log('Categoria selecionada:', btn.getAttribute('data-categoria'));
             document.querySelectorAll('.categoria-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             categoriaAtiva = btn.getAttribute('data-categoria');
@@ -115,22 +71,21 @@ function gerarBotoesCategoria() {
 function pesquisarProdutos() {
     termoPesquisa = pesquisaInput.value.trim().toLowerCase();
     limparPesquisaBtn.style.display = termoPesquisa ? 'flex' : 'none';
-    console.log('Pesquisa realizada:', termoPesquisa);
     renderizarProdutos();
 }
 
-// Função para renderizar produtos
+// Função para renderizar produtos (com suporte à pesquisa)
 function renderizarProdutos() {
-    console.log('Renderizando produtos...');
     produtosContainer.innerHTML = '';
     
     let produtosFiltrados = produtos;
     
+    // Filtrar por categoria
     if (categoriaAtiva !== 'todos') {
         produtosFiltrados = produtosFiltrados.filter(p => p.CATEGORIA === categoriaAtiva);
-        console.log('Filtrando por categoria:', categoriaAtiva, produtosFiltrados.length);
     }
     
+    // Filtrar por termo de pesquisa
     if (termoPesquisa) {
         produtosFiltrados = produtosFiltrados.filter(p => 
             p.DESCRICAO.toLowerCase().includes(termoPesquisa) ||
@@ -141,7 +96,6 @@ function renderizarProdutos() {
             p.TAMANHO.toLowerCase().includes(termoPesquisa) ||
             p.SKU.toLowerCase().includes(termoPesquisa)
         );
-        console.log('Filtrando por pesquisa:', termoPesquisa, produtosFiltrados.length);
     }
     
     if (produtosFiltrados.length === 0) {
@@ -150,7 +104,6 @@ function renderizarProdutos() {
                 <p>Nenhum produto encontrado${termoPesquisa ? ' para a pesquisa "' + termoPesquisa + '"' : ''}.</p>
             </div>
         `;
-        console.log('Nenhum produto encontrado');
         return;
     }
 
@@ -164,7 +117,6 @@ function renderizarProdutos() {
         const imagem = document.createElement('img');
         imagem.className = 'produto-imagem';
         imagem.alt = produto.DESCRICAO;
-        imagem.loading = 'lazy';
         
         const placeholder = document.createElement('div');
         placeholder.className = 'placeholder-imagem';
@@ -201,7 +153,7 @@ function renderizarProdutos() {
                     <p><strong>SKU:</strong> ${produto.SKU}</p>
                 </div>
                 <div class="produto-preco">R$ ${produto.PRECO.toFixed(2).replace('.', ',')}</div>
-                <button class="add-carrinho" data-sku="${produto.SKU}" aria-label="Adicionar ${produto.DESCRICAO} ao carrinho">Adicionar ao Carrinho</button>
+                <button class="add-carrinho" data-sku="${produto.SKU}">Adicionar ao Carrinho</button>
             </div>
         `;
         
@@ -216,83 +168,90 @@ function renderizarProdutos() {
             adicionarAoCarrinho(sku);
         });
     });
-    console.log('Produtos renderizados:', produtosFiltrados.length);
 }
 
 // Funções do carrinho
 function adicionarAoCarrinho(sku) {
     const produto = produtos.find(p => p.SKU === sku);
-    if (!produto) {
-        console.error('Produto não encontrado:', sku);
-        return;
-    }
+    if (!produto) return;
 
     const itemExistente = carrinho.find(item => item.SKU === sku);
-    const novaQuantidade = itemExistente ? itemExistente.quantidade + 1 : 1;
-
-    if (novaQuantidade > produto.QTD) {
-        mostrarFeedback(`Estoque insuficiente! Apenas ${produto.QTD} unidade(s) disponível(is).`, 'error');
-        return;
-    }
-
+    
     if (itemExistente) {
-        itemExistente.quantidade = novaQuantidade;
+        itemExistente.quantidade += 1;
     } else {
-        carrinho.push({ ...produto, quantidade: 1 });
+        carrinho.push({
+            ...produto,
+            quantidade: 1
+        });
     }
 
-    console.log('Adicionando ao carrinho:', { sku, quantidade: novaQuantidade });
     atualizarCarrinho();
     mostrarFeedback('Produto adicionado ao carrinho!');
 }
 
 function removerDoCarrinho(sku) {
     carrinho = carrinho.filter(item => item.SKU !== sku);
-    console.log('Removendo do carrinho:', sku);
     atualizarCarrinho();
     mostrarFeedback('Produto removido do carrinho');
 }
 
 function atualizarQuantidade(sku, novaQuantidade) {
     const item = carrinho.find(item => item.SKU === sku);
-    const produto = produtos.find(p => p.SKU === sku);
-    if (item && produto) {
-        if (novaQuantidade > produto.QTD) {
-            mostrarFeedback(`Estoque insuficiente! Apenas ${produto.QTD} unidade(s) disponível(is).`, 'error');
-            item.quantidade = produto.QTD;
-        } else {
-            item.quantidade = Math.max(1, novaQuantidade);
-        }
-        console.log('Atualizando quantidade:', { sku, novaQuantidade: item.quantidade });
+    if (item) {
+        item.quantidade = Math.max(1, novaQuantidade);
         atualizarCarrinho();
     }
 }
 
 // Função para atualizar o carrinho
 function atualizarCarrinho() {
+    // Tenta carregar o carrinho do localStorage
     try {
-        localStorage.setItem('carrinho', JSON.stringify(carrinho));
-        console.log('Carrinho salvo no localStorage:', carrinho);
+        const storedCarrinho = localStorage.getItem('carrinho');
+        if (storedCarrinho) {
+            carrinho = JSON.parse(storedCarrinho);
+        }
     } catch (e) {
-        console.error('Erro ao salvar carrinho no localStorage:', e);
+        console.error('Erro ao carregar carrinho do localStorage:', e);
+        localStorage.removeItem('carrinho');
     }
 
-    const totalItens = carrinho.reduce((total, item) => total + item.quantidade, 0);
+    // Verifica se carrinho existe, se não, inicializa como array vazio
+    if (typeof carrinho === 'undefined') {
+        carrinho = [];
+    }
+    
+    try {
+        // Tenta salvar no localStorage (se estiver em ambiente browser)
+        if (typeof localStorage !== 'undefined') {
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        }
+    } catch (e) {
+        console.error('Erro ao acessar localStorage:', e);
+    }
+
+    // Atualiza contador do carrinho
+    const totalItens = carrinho.reduce((total, item) => total + (item.quantidade || 1), 0);
     carrinhoCount.textContent = totalItens;
     carrinhoCount.style.display = totalItens > 0 ? 'flex' : 'none';
 
+    // Limpa conteúdo anterior
     carrinhoContent.innerHTML = '';
 
+    // Se carrinho vazio
     if (carrinho.length === 0) {
         carrinhoContent.innerHTML = '<div class="carrinho-vazio">Seu carrinho está vazio</div>';
-        carrinhoTotal.textContent = 'R$ 0,00';
+        carrinhoTotal.textContent = '0,00';
         return;
     }
 
+    // Calcula total
     let total = 0;
     
+    // Renderiza cada item do carrinho
     carrinho.forEach(item => {
-        total += item.PRECO * item.quantidade;
+        total += (item.PRECO || 0) * (item.quantidade || 1);
         
         const carrinhoItem = document.createElement('div');
         carrinhoItem.className = 'carrinho-item';
@@ -303,9 +262,8 @@ function atualizarCarrinho() {
         if (item.IMAGES && item.IMAGES.length > 0) {
             const img = document.createElement('img');
             img.className = 'carrinho-item-img';
-            img.alt = item.DESCRICAO;
+            img.alt = item.DESCRICAO || 'Produto sem descrição';
             img.src = item.IMAGES[0];
-            img.loading = 'lazy';
             
             img.onerror = () => {
                 imgContainer.innerHTML = '<div class="placeholder-imagem">Sem imagem</div>';
@@ -321,17 +279,17 @@ function atualizarCarrinho() {
         const detalhes = document.createElement('div');
         detalhes.className = 'carrinho-item-detalhes';
         detalhes.innerHTML = `
-            <div class="carrinho-item-titulo">${item.DESCRICAO}</div>
+            <div class="carrinho-item-titulo">${item.DESCRICAO || 'Produto sem nome'}</div>
             <div class="carrinho-item-atributos">
-                <p>${item.MODELO} | ${item.COR}</p>
-                <p>${item.MATERIAL} | ${item.TAMANHO}</p>
+                <p>${item.MODELO || ''} | ${item.COR || ''}</p>
+                <p>${item.MATERIAL || ''} | ${item.TAMANHO || ''}</p>
             </div>
-            <div class="carrinho-item-preco">R$ ${(item.PRECO * item.quantidade).toFixed(2).replace('.', ',')}</div>
+            <div class="carrinho-item-preco">R$ ${((item.PRECO || 0) * (item.quantidade || 1)).toFixed(2).replace('.', ',')}</div>
             <div class="carrinho-item-controles">
-                <button class="quantidade-btn" data-sku="${item.SKU}" data-action="decrementar" aria-label="Diminuir quantidade">-</button>
-                <input type="number" class="quantidade-input" value="${item.quantidade}" min="1" max="${item.QTD}" data-sku="${item.SKU}" aria-label="Quantidade do item">
-                <button class="quantidade-btn" data-sku="${item.SKU}" data-action="incrementar" aria-label="Aumentar quantidade">+</button>
-                <span class="remover-item" data-sku="${item.SKU}" role="button" aria-label="Remover ${item.DESCRICAO} do carrinho">Remover</span>
+                <button class="quantidade-btn" data-sku="${item.SKU || ''}" data-action="decrementar">-</button>
+                <input type="number" class="quantidade-input" value="${item.quantidade || 1}" min="1" data-sku="${item.SKU || ''}">
+                <button class="quantidade-btn" data-sku="${item.SKU || ''}" data-action="incrementar">+</button>
+                <span class="remover-item" data-sku="${item.SKU || ''}">Remover</span>
             </div>
         `;
         
@@ -339,8 +297,10 @@ function atualizarCarrinho() {
         carrinhoContent.appendChild(carrinhoItem);
     });
     
-    carrinhoTotal.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+    // Atualiza total
+    carrinhoTotal.textContent = total.toFixed(2).replace('.', ',');
     
+    // Adiciona event listeners aos controles de quantidade
     document.querySelectorAll('.quantidade-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const sku = e.target.getAttribute('data-sku');
@@ -374,9 +334,9 @@ function atualizarCarrinho() {
 }
 
 // Finalizar pedido via WhatsApp
-function finalizarCompraWhatsApp() {
+function finalizarPedidoWhatsApp() {
     if (carrinho.length === 0) {
-        mostrarFeedback('Nenhum item no carrinho!', 'error');
+        mostrarFeedback('Seu carrinho está vazio!', 'error');
         return;
     }
     
@@ -385,12 +345,12 @@ function finalizarCompraWhatsApp() {
     document.body.style.overflow = 'hidden';
     
     setTimeout(() => {
-        document.querySelector('#nome-cliente').focus();
+        document.getElementById('nome-cliente').focus();
     }, 100);
 }
 
 // Formatar telefone
-document.querySelector('#telefone-cliente').addEventListener('input', (e) => {
+document.getElementById('telefone-cliente').addEventListener('input', function(e) {
     let value = e.target.value.replace(/\D/g, '');
     if (value.length > 11) value = value.substring(0, 11);
     
@@ -410,9 +370,9 @@ document.querySelector('#telefone-cliente').addEventListener('input', (e) => {
 formDadosCliente.addEventListener('submit', function(e) {
     e.preventDefault();
     
-    const nomeCliente = document.querySelector('#nome-cliente').value.trim();
-    const telefoneCliente = document.querySelector('#telefone-cliente').value.replace(/\D/g, '');
-    const observacoes = document.querySelector('#observacoes').value.trim();
+    const nomeCliente = document.getElementById('nome-cliente').value.trim();
+    const telefoneCliente = document.getElementById('telefone-cliente').value.replace(/\D/g, '');
+    const observacoes = document.getElementById('observacoes').value.trim();
     
     if (!nomeCliente) {
         mostrarFeedback('Por favor, informe seu nome!', 'error');
@@ -475,14 +435,6 @@ modalOverlay.addEventListener('click', function(e) {
     }
 });
 
-// Fechar modal com tecla Esc
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        modalOverlay.style.display = 'none';
-        document.body.style.overflow = '';
-    }
-});
-
 // Mostrar feedback
 function mostrarFeedback(texto, tipo = 'success') {
     feedback.textContent = texto;
@@ -501,7 +453,7 @@ limparPesquisaBtn.addEventListener('click', () => {
     pesquisaInput.value = '';
     termoPesquisa = '';
     limparPesquisaBtn.style.display = 'none';
-    pesquisarProdutos();
+    renderizarProdutos();
 });
 
 // Event Listeners
@@ -509,31 +461,35 @@ carrinhoIcon.addEventListener('click', () => {
     carrinhoSidebar.classList.add('open');
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+    document.body.style.touchAction = 'none';
 });
 
 fecharCarrinhoBtn.addEventListener('click', () => {
     carrinhoSidebar.classList.remove('open');
     overlay.classList.remove('active');
     document.body.style.overflow = '';
+    document.body.style.touchAction = '';
 });
 
 overlay.addEventListener('click', () => {
     carrinhoSidebar.classList.remove('open');
     overlay.classList.remove('active');
     document.body.style.overflow = '';
+    document.body.style.touchAction = '';
 });
 
-finalizarPedidoBtn.addEventListener('click', finalizarCompraWhatsApp);
+finalizarPedidoBtn.addEventListener('click', finalizarPedidoWhatsApp);
 finalizarPedidoBtn.addEventListener('touchstart', (e) => {
     e.preventDefault();
-    finalizarCompraWhatsApp();
+    finalizarPedidoWhatsApp();
 }, { passive: false });
 
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Inicializando aplicação...');
-    inicializarCarrinho();
     carregarProdutos();
     
     carrinhoIcon.style.display = 'flex';
+    if (carrinho.length > 0) {
+        carrinhoCount.style.display = 'flex';
+    }
 });
