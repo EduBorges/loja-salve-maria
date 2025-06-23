@@ -69,7 +69,7 @@ header h1 {
 .pesquisa-input {
     flex: 1;
     min-width: 0;
-    padding: 0.6rem 2.8rem 0.6rem 0.8rem;
+    padding: 0.6rem 1.8rem 0.6rem 0.8rem;
     border: var(--borda);
     border-radius: var(--borda-radius);
     font-size: 0.9rem;
@@ -83,7 +83,7 @@ header h1 {
     box-shadow: 0 0 0 2px rgba(111, 188, 227, 0.2);
 }
 
-.pesquisa-btn {
+.pesquisa-btn, .limpar-pesquisa {
     padding: 0;
     background-color: var(--cor-primaria);
     color: white;
@@ -101,23 +101,27 @@ header h1 {
     touch-action: manipulation;
 }
 
-.pesquisa-btn:active {
+.pesquisa-btn:active, .limpar-pesquisa:active {
     background-color: var(--cor-primaria-escura);
     transform: scale(0.98);
 }
 
 .limpar-pesquisa {
     position: absolute;
-    right: 4.5rem; /* Ajustado para dar espaço ao ícone do carrinho */
+    right: 0.5rem;
     top: 50%;
     transform: translateY(-50%);
     background: transparent;
-    border: none;
     color: var(--cor-texto-claro);
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: none; /* Inicia oculto */
-    padding: 0.5rem;
+    font-size: 0.9rem;
+    display: none;
+    width: 24px;
+    height: 24px;
+}
+
+.limpar-pesquisa:active {
+    color: var(--cor-texto);
+    transform: translateY(-50%) scale(0.98);
 }
 
 /* Estilos para as categorias */
@@ -187,7 +191,7 @@ header h1 {
 
 .produto-imagem-container {
     position: relative;
-    padding-top: 100%; /* Proporção 1:1 */
+    padding-top: 100%;
     overflow: hidden;
     background-color: #f8f9fa;
 }
@@ -224,7 +228,7 @@ header h1 {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    min-height: 2.7em; /* Ajustado para 2 linhas */
+    min-height: 2.4em;
 }
 
 .produto-atributos {
@@ -351,7 +355,7 @@ header h1 {
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    z-index: 95;
     display: none;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -372,7 +376,7 @@ header h1 {
     background: white;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     transition: right 0.3s ease;
-    z-index: 1000;
+    z-index: 100;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -615,7 +619,7 @@ header h1 {
 
 .feedback {
     position: fixed;
-    bottom: -100px; /* Inicia fora da tela */
+    bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
     padding: 0.8rem 1.5rem;
@@ -623,9 +627,9 @@ header h1 {
     color: white;
     border-radius: var(--borda-radius);
     box-shadow: var(--sombra);
-    z-index: 1100;
+    z-index: 110;
     opacity: 0;
-    transition: all 0.4s ease;
+    transition: opacity 0.3s ease;
     font-weight: 500;
     max-width: 90%;
     text-align: center;
@@ -634,7 +638,6 @@ header h1 {
 
 .feedback.show {
     opacity: 1;
-    bottom: 1rem;
 }
 
 .feedback.error {
@@ -671,14 +674,8 @@ header h1 {
 }
 
 @keyframes modalFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .modal-container h3 {
@@ -790,12 +787,15 @@ header h1 {
     .produtos-grid {
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     }
+    
     .produto-titulo {
         font-size: 0.95rem;
     }
+    
     .produto-atributos {
         font-size: 0.8rem;
     }
+    
     .add-carrinho {
         font-size: 0.9rem;
     }
@@ -805,16 +805,20 @@ header h1 {
     .container {
         padding: 0 1rem;
     }
+    
     .produtos-grid {
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
         gap: 1rem;
     }
+    
     .produto-info {
         padding: 1rem;
     }
+    
     .carrinho-sidebar {
         max-width: 380px;
     }
+    
     .modal-container {
         max-width: 350px;
     }
@@ -824,39 +828,50 @@ header h1 {
     body {
         padding-bottom: 0;
     }
+    
     header {
         padding: 1rem;
     }
+    
     header h1 {
         font-size: 1.5rem;
     }
+    
     .container {
         max-width: 1200px;
         margin: 1.5rem auto;
     }
+    
     .pesquisa-input {
         max-width: 300px;
     }
+    
     .produtos-grid {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 1.25rem;
     }
+    
     .produto-titulo {
         font-size: 1rem;
     }
+    
     .produto-atributos {
         font-size: 0.85rem;
     }
+    
     .produto-preco {
         font-size: 1.1rem;
     }
+    
     .add-carrinho {
         padding: 0.75rem;
         font-size: 0.95rem;
     }
+    
     .carrinho-sidebar {
         max-width: 400px;
     }
+    
     .modal-container {
         max-width: 400px;
     }
