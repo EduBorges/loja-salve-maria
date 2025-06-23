@@ -34,11 +34,18 @@ header {
     background-color: var(--cor-primaria);
     color: white;
     padding: 0.8rem 1rem;
-    text-align: center;
     box-shadow: var(--sombra);
     position: sticky;
     top: 0;
     z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 header h1 {
@@ -165,7 +172,7 @@ header h1 {
 
 .pesquisa-btn, .limpar-pesquisa {
     padding: 0;
-    background-color: var(--cor-primaria);
+    background-color: var(--cor-primaria-escura);
     color: white;
     border: none;
     border-radius: var(--borda-radius);
@@ -351,10 +358,10 @@ header h1 {
 
 /* Carrinho de compras */
 .carrinho-icon {
-    background: var(--cor-primaria);
+    background: var(--cor-primaria-escura);
     color: white;
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     border-radius: var(--borda-radius);
     display: flex;
     align-items: center;
@@ -362,11 +369,7 @@ header h1 {
     cursor: pointer;
     box-shadow: var(--sombra);
     transition: transform 0.2s ease, background-color 0.2s ease;
-    font-size: 1.2rem;
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    z-index: 110;
+    font-size: 1.1rem;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
 }
@@ -378,14 +381,14 @@ header h1 {
 
 .carrinho-count {
     position: absolute;
-    top: -8px;
-    right: -8px;
+    top: -6px;
+    right: -6px;
     background: var(--cor-erro);
     color: white;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     display: flex;
     align-items: center;
     justify-content: center;
