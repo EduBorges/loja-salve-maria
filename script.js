@@ -66,7 +66,7 @@ function renderizarProdutos() {
     let produtosFiltrados = produtos;
     
     // Filtrar por categoria
-    if (categoriaAtiva !== 'todos') {
+    if (categoriaAtiva !== 'TODOS') {
         produtosFiltrados = produtosFiltrados.filter(p => p.CATEGORIA === categoriaAtiva);
     }
     
