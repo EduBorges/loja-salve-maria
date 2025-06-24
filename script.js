@@ -154,7 +154,17 @@ function atualizarCarrinho() {
                 <img src="${item.IMAGES[0]}" alt="${item.DESCRICAO}" class="carrinho-item-img">
                 <div class="carrinho-item-detalhes">
                     <h4 class="carrinho-item-titulo">${item.DESCRICAO}</h4>
-                    <div class="carrinho-item-preco">R$ ${item.PRECO.toFixed(2).replace('.', ',')}</div>
+                    <div class="carrinho-item-atributos">
+                        <p><strong>Material:</strong> ${item.MATERIAL}</p>
+                        <p><strong>Modelo:</strong> ${item.MODELO}</p>
+                        <p><strong>Cor:</strong> ${item.COR}</p>
+                        <p><strong>Tamanho:</strong> ${item.TAMANHO}</p>
+                        <p><strong>SKU:</strong> ${item.SKU}</p>
+                    </div>
+                    <div class="carrinho-item-preco">
+                        <p><strong>Preço unitário:</strong> R$ ${item.PRECO.toFixed(2).replace('.', ',')}</p>
+                        <p><strong>Subtotal:</strong> R$ ${(item.PRECO * item.quantidade).toFixed(2).replace('.', ',')}</p>
+                    </div>
                     <div class="carrinho-item-controles">
                         <button class="quantidade-btn" data-action="decrementar" data-sku="${item.SKU}">-</button>
                         <span>${item.quantidade}</span>
