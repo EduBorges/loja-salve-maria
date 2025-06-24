@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
     let produtos = [];
     let categorias = new Set();
+    const NUMERO_WHATSAPP = '5515981475186'; // Número fixo formatado sem caracteres especiais
 
     // Função para carregar produtos
     async function carregarProdutos() {
@@ -250,16 +251,20 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleCarrinho();
     });
 
-    // Remove o event listener do documento que estava fechando o carrinho
-    // E adiciona apenas para o carrinho, para fechar quando clicar fora
+    // Previne que cliques dentro do carrinho fechem o mesmo
     carrinhoFixo.addEventListener('click', function(e) {
-        e.stopPropagation(); // Impede que o evento se propague para o documento
+        e.stopPropagation();
     });
 
-    // Mantém o carrinho aberto quando clicar em elementos dentro dele
-    document.addEventListener('click', function() {
-        // Não faz nada - o carrinho só fecha quando clicar no ícone novamente
-    });
+    // Fecha o carrinho apenas quando clicar fora (apenas na versão desktop)
+    if (window.innerWidth > 768) {
+        document.addEventListener('click', function(e) {
+            // Verifica se o clique foi fora do carrinho e do ícone
+            if (!carrinhoFixo.contains(e.target) && !carrinhoFlutuante.contains(e.target)) {
+                carrinhoFixo.style.display = 'none';
+            }
+        });
+    }
 
     pesquisaBtn.addEventListener('click', pesquisarProdutos);
     pesquisaInput.addEventListener('keypress', function(e) {
@@ -309,8 +314,8 @@ document.addEventListener('DOMContentLoaded', function() {
         modalOverlay.style.display = 'none';
         formPedido.reset();
 
-        // Abrir WhatsApp
-        const url = `https://wa.me/55${telefone.replace(/\D/g, '')}?text=${encodeURIComponent(mensagem)}`;
+        // Abrir WhatsApp com número fixo
+        const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
         window.open(url, '_blank');
 
         mostrarFeedback('Pedido enviado com sucesso!', 'sucesso');
