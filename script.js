@@ -144,32 +144,30 @@ function atualizarCarrinho() {
     carrinhoCount.textContent = totalItens;
     document.getElementById('carrinho-count-flutuante').textContent = totalItens;
     
-    // Atualizar conteúdo
+    // Atualizar conteúdo (sem alterar a visibilidade)
     if (carrinho.length === 0) {
         carrinhoContent.innerHTML = '<p class="carrinho-vazio">Seu carrinho está vazio</p>';
         carrinhoTotal.textContent = 'R$ 0,00';
-        return;
-    }
-    
-    carrinhoContent.innerHTML = carrinho.map(item => `
-        <div class="carrinho-item">
-            <img src="${item.IMAGES[0]}" alt="${item.DESCRICAO}" class="carrinho-item-img">
-            <div class="carrinho-item-detalhes">
-                <h4 class="carrinho-item-titulo">${item.DESCRICAO}</h4>
-                <div class="carrinho-item-preco">R$ ${item.PRECO.toFixed(2).replace('.', ',')}</div>
-                <div class="carrinho-item-controles">
-                    <button class="quantidade-btn" data-action="decrementar" data-sku="${item.SKU}">-</button>
-                    <span>${item.quantidade}</span>
-                    <button class="quantidade-btn" data-action="incrementar" data-sku="${item.SKU}">+</button>
-                    <span class="remover-item" data-sku="${item.SKU}">Remover</span>
+    } else {
+        carrinhoContent.innerHTML = carrinho.map(item => `
+            <div class="carrinho-item">
+                <img src="${item.IMAGES[0]}" alt="${item.DESCRICAO}" class="carrinho-item-img">
+                <div class="carrinho-item-detalhes">
+                    <h4 class="carrinho-item-titulo">${item.DESCRICAO}</h4>
+                    <div class="carrinho-item-preco">R$ ${item.PRECO.toFixed(2).replace('.', ',')}</div>
+                    <div class="carrinho-item-controles">
+                        <button class="quantidade-btn" data-action="decrementar" data-sku="${item.SKU}">-</button>
+                        <span>${item.quantidade}</span>
+                        <button class="quantidade-btn" data-action="incrementar" data-sku="${item.SKU}">+</button>
+                        <span class="remover-item" data-sku="${item.SKU}">Remover</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    `).join('');
-    
-    // Atualizar total
-    const total = carrinho.reduce((sum, item) => sum + (item.PRECO * item.quantidade), 0);
-    carrinhoTotal.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        `).join('');
+        
+        const total = carrinho.reduce((sum, item) => sum + (item.PRECO * item.quantidade), 0);
+        carrinhoTotal.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+    }
     
     // Adicionar event listeners
     document.querySelectorAll('.quantidade-btn').forEach(btn => {
@@ -291,14 +289,26 @@ modalOverlay.addEventListener('click', (e) => {
     }
 });
 
-// Event Listener para o ícone flutuante
-carrinhoFlutuante.addEventListener('click', () => {
-    carrinhoFixo.style.display = 'block';
-    carrinhoFixo.scrollIntoView({ behavior: 'smooth' });
+// Gerenciamento da exibição do carrinho
+carrinhoFlutuante.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (carrinhoFixo.style.display === 'block') {
+        carrinhoFixo.style.display = 'none';
+    } else {
+        carrinhoFixo.style.display = 'block';
+        carrinhoFixo.scrollIntoView({ behavior: 'smooth' });
+    }
+});
+
+document.addEventListener('click', (e) => {
+    if (!carrinhoFixo.contains(e.target) && e.target !== carrinhoFlutuante) {
+        carrinhoFixo.style.display = 'none';
+    }
 });
 
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
+    carrinhoFixo.style.display = 'none'; // Garante que o carrinho comece oculto
     carregarProdutos();
     
     // Inicializar contador do ícone flutuante
