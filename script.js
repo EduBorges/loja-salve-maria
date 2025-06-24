@@ -4,7 +4,7 @@ const TELEFONE_LOJA = "5515981475186";
 // Estado da aplicação
 let produtos = [];
 let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-let categoriaAtiva = 'todos';
+let categoriaAtiva = 'TODOS';
 let termoPesquisa = '';
 
 // Elementos DOM
@@ -38,13 +38,13 @@ async function carregarProdutos() {
 
 // Renderizar categorias
 function renderizarCategorias() {
-    const categorias = ['todos', ...new Set(produtos.map(p => p.CATEGORIA))];
+    const categorias = ['TODOS', ...new Set(produtos.map(p => p.CATEGORIA))];
     
     listaCategorias.innerHTML = categorias.map(categoria => `
         <li>
-            <button class="${categoria === 'todos' ? 'active' : ''}" 
+            <button class="${categoria === 'TODOS' ? 'active' : ''}" 
                     data-categoria="${categoria}">
-                ${categoria === 'todos' ? 'Todos' : categoria}
+                ${categoria === 'TODOS' ? 'TODOS' : categoria}
             </button>
         </li>
     `).join('');
