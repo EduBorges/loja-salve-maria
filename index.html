@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Salve Maria Imaculada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Loja Salve Maria Imaculada</h1>
+    </header>
+
+    <div class="container">
+        <!-- Menu de categorias lateral -->
+        <aside class="categorias-lateral">
+            <h2>Categorias</h2>
+            <ul id="lista-categorias">
+                <!-- Categorias serão preenchidas pelo JavaScript -->
+            </ul>
+        </aside>
+
+        <!-- Área principal de produtos -->
+        <main class="produtos-container">
+            <div class="pesquisa-container">
+                <input type="text" id="pesquisa-input" placeholder="Pesquisar produtos...">
+                <button id="pesquisa-btn">🔍</button>
+            </div>
+            
+            <div class="produtos-grid" id="produtos-grid">
+                <!-- Produtos serão carregados aqui -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Carrinho fixo -->
+    <div class="carrinho-fixo" id="carrinho-fixo">
+        <div class="carrinho-header">
+            <h3>Seu Carrinho</h3>
+            <span id="carrinho-count">0</span>
+        </div>
+        <div class="carrinho-content" id="carrinho-content">
+            <!-- Itens do carrinho serão adicionados aqui -->
+            <p class="carrinho-vazio">Seu carrinho está vazio</p>
+        </div>
+        <div class="carrinho-footer">
+            <div class="carrinho-total">
+                Total: <span id="carrinho-total">R$ 0,00</span>
+            </div>
+            <button id="finalizar-pedido">Finalizar Pedido</button>
+        </div>
+    </div>
+
+    <!-- Ícone flutuante do carrinho -->
+    <div class="carrinho-flutuante" id="carrinho-flutuante">
+        <span class="carrinho-icon">🛒</span>
+        <span class="carrinho-count" id="carrinho-count-flutuante">0</span>
+    </div>
+
+    <!-- Modal de confirmação -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-container">
+            <h3>Confirmar Pedido</h3>
+            <form id="form-pedido">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">WhatsApp:</label>
+                    <input type="tel" id="telefone" placeholder="(00) 00000-0000">
+                </div>
+                <div class="form-group">
+                    <label for="observacoes">Observações:</label>
+                    <textarea id="observacoes" rows="3" placeholder="Alguma informação adicional sobre seu pedido..."></textarea>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" id="cancelar-pedido">Cancelar</button>
+                    <button type="submit">Enviar Pedido</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
