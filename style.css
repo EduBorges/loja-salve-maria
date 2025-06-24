@@ -438,3 +438,7 @@ header {
         grid-template-columns: 1fr 1fr;
     }
 }
+/* Adicione esta regra no final do arquivo CSS */
+.carrinho-fixo {
+    display: none; /* Esconde o carrinho por padrão */
+}
