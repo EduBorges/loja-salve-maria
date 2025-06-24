@@ -443,3 +443,23 @@ header {
         grid-template-columns: 1fr 1fr;
     }
 }
+/* Adicione estas regras ao seu CSS existente */
+.carrinho-item-atributos {
+    font-size: 0.85rem;
+    color: var(--cor-texto-claro);
+    margin: 0.5rem 0;
+}
+
+.carrinho-item-atributos p {
+    margin-bottom: 0.3rem;
+    line-height: 1.4;
+}
+
+.carrinho-item-preco {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+.carrinho-item-preco p {
+    margin-bottom: 0.3rem;
+}
