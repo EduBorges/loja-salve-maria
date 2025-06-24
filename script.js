@@ -20,6 +20,7 @@ const pesquisaBtn = document.getElementById('pesquisa-btn');
 const modalOverlay = document.getElementById('modal-overlay');
 const formPedido = document.getElementById('form-pedido');
 const cancelarPedidoBtn = document.getElementById('cancelar-pedido');
+const carrinhoFlutuante = document.getElementById('carrinho-flutuante');
 
 // Carregar produtos
 async function carregarProdutos() {
@@ -141,6 +142,7 @@ function atualizarCarrinho() {
     // Atualizar contador
     const totalItens = carrinho.reduce((total, item) => total + item.quantidade, 0);
     carrinhoCount.textContent = totalItens;
+    document.getElementById('carrinho-count-flutuante').textContent = totalItens;
     
     // Atualizar conteúdo
     if (carrinho.length === 0) {
@@ -197,7 +199,7 @@ function atualizarCarrinho() {
 // Finalizar pedido
 function finalizarPedido() {
     if (carrinho.length === 0) {
-        mostrarFeedback('Seu carrinho está vazio!', 'error');
+        mostrarFeedback('Seu carrinho está vazio!', 'erro');
         return;
     }
     
@@ -205,7 +207,7 @@ function finalizarPedido() {
 }
 
 // Enviar pedido por WhatsApp
-function enviarPedidoWhatsApp(nome, telefone) {
+function enviarPedidoWhatsApp(nome, telefone, observacoes) {
     let mensagem = `*Pedido da Loja Salve Maria Imaculada*\n\n`;
     mensagem += `*Cliente:* ${nome}\n`;
     if (telefone) mensagem += `*WhatsApp:* ${telefone}\n\n`;
@@ -213,6 +215,7 @@ function enviarPedidoWhatsApp(nome, telefone) {
     
     carrinho.forEach((item, index) => {
         mensagem += `*${index + 1}. ${item.DESCRICAO}*\n`;
+        mensagem += `   - SKU: ${item.SKU}\n`;
         mensagem += `   - Quantidade: ${item.quantidade}\n`;
         mensagem += `   - Preço unitário: R$ ${item.PRECO.toFixed(2).replace('.', ',')}\n`;
         mensagem += `   - Subtotal: R$ ${(item.PRECO * item.quantidade).toFixed(2).replace('.', ',')}\n\n`;
@@ -220,6 +223,11 @@ function enviarPedidoWhatsApp(nome, telefone) {
     
     const total = carrinho.reduce((sum, item) => sum + (item.PRECO * item.quantidade), 0);
     mensagem += `*Total do Pedido:* R$ ${total.toFixed(2).replace('.', ',')}\n\n`;
+    
+    if (observacoes) {
+        mensagem += `*Observações:*\n${observacoes}\n\n`;
+    }
+    
     mensagem += `Por favor, confirme a disponibilidade dos itens.`;
     
     const mensagemCodificada = encodeURIComponent(mensagem);
@@ -262,13 +270,14 @@ formPedido.addEventListener('submit', (e) => {
     e.preventDefault();
     const nome = document.getElementById('nome').value.trim();
     const telefone = document.getElementById('telefone').value.trim();
+    const observacoes = document.getElementById('observacoes').value.trim();
     
     if (!nome) {
         mostrarFeedback('Por favor, informe seu nome', 'erro');
         return;
     }
     
-    enviarPedidoWhatsApp(nome, telefone);
+    enviarPedidoWhatsApp(nome, telefone, observacoes);
     formPedido.reset();
 });
 
@@ -282,27 +291,17 @@ modalOverlay.addEventListener('click', (e) => {
     }
 });
 
+// Event Listener para o ícone flutuante
+carrinhoFlutuante.addEventListener('click', () => {
+    carrinhoFixo.style.display = 'block';
+    carrinhoFixo.scrollIntoView({ behavior: 'smooth' });
+});
+
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
     carregarProdutos();
     
-    // Adicionar estilo de feedback dinâmico
-    const style = document.createElement('style');
-    style.textContent = `
-        .feedback {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 10px 20px;
-            border-radius: 5px;
-            color: white;
-            z-index: 1000;
-            animation: fadeIn 0.3s;
-        }
-        .sucesso { background-color: var(--cor-sucesso); }
-        .erro { background-color: var(--cor-erro); }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    `;
-    document.head.appendChild(style);
+    // Inicializar contador do ícone flutuante
+    const totalItens = carrinho.reduce((total, item) => total + (item.quantidade || 0), 0);
+    document.getElementById('carrinho-count-flutuante').textContent = totalItens;
 });
