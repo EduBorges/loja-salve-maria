@@ -214,7 +214,6 @@ function finalizarPedido() {
     modalOverlay.style.display = 'flex';
 }
 
-// Enviar pedido por WhatsApp
 function enviarPedidoWhatsApp(nome, telefone, observacoes) {
     let mensagem = `*Pedido da Loja Salve Maria Imaculada*\n\n`;
     mensagem += `*Cliente:* ${nome}\n`;
@@ -223,10 +222,14 @@ function enviarPedidoWhatsApp(nome, telefone, observacoes) {
     
     carrinho.forEach((item, index) => {
         mensagem += `*${index + 1}. ${item.DESCRICAO}*\n`;
-        mensagem += `   - SKU: ${item.SKU}\n`;
-        mensagem += `   - Quantidade: ${item.quantidade}\n`;
-        mensagem += `   - Preço unitário: R$ ${item.PRECO.toFixed(2).replace('.', ',')}\n`;
-        mensagem += `   - Subtotal: R$ ${(item.PRECO * item.quantidade).toFixed(2).replace('.', ',')}\n\n`;
+        mensagem += `Material: ${item.MATERIAL}\n`;
+        mensagem += `Modelo: ${item.MODELO}\n`;
+        mensagem += `Cor: ${item.COR}\n`;
+        mensagem += `Tamanho: ${item.TAMANHO}\n`;
+        mensagem += `SKU: ${item.SKU}\n`;
+        mensagem += `Quantidade: ${item.quantidade}\n`;
+        mensagem += `Preço unitário: R$ ${item.PRECO.toFixed(2).replace('.', ',')}\n`;
+        mensagem += `Subtotal: R$ ${(item.PRECO * item.quantidade).toFixed(2).replace('.', ',')}\n\n`;
     });
     
     const total = carrinho.reduce((sum, item) => sum + (item.PRECO * item.quantidade), 0);
