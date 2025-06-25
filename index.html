@@ -8,43 +8,40 @@
 </head>
 <body>
     <header>
-        <img src="https://example.com/logo.png" alt="Logo Loja Salve Maria Imaculada" class="header-logo"> <h1>Loja Salve Maria Imaculada</h1>
+        <div class="header-content">
+            <img src="https://via.placeholder.com/40x40?text=Logo" alt="Logo Loja Salve Maria Imaculada" class="store-logo">
+            <h1>Loja Salve Maria Imaculada</h1>
+        </div>
     </header>
 
     <div class="container">
         <div class="pesquisa-container">
-            <div class="search-input-wrapper">
-                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <input type="text" class="pesquisa-input" id="pesquisa-input" placeholder="Pesquisar produtos">
+            <button class="limpar-pesquisa" id="limpar-pesquisa" title="Limpar pesquisa">✕</button>
+            <button class="pesquisa-btn" id="pesquisa-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="11" cy="11" r="8"></circle>
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
-                <input type="text" class="pesquisa-input" id="pesquisa-input" placeholder="Pesquisar produtos">
-                <button class="limpar-pesquisa" id="limpar-pesquisa" title="Limpar pesquisa">✕</button>
-            </div>
-            <div class="carrinho-icon" id="carrinho-icon">
-                🛒
-                <span class="carrinho-count" id="carrinho-count">0</span>
-            </div>
+            </button>
         </div>
 
-        <div class="main-content">
-            <div class="categorias-menu" id="categorias-menu">
-                <button class="categoria-btn active" data-categoria="todos">Todos</button>
-                </div>
+        <div class="categorias">
+            <button class="categoria-btn active" data-categoria="todos">Todos</button>
+            </div>
 
-            <div class="produtos-grid" id="produtos-container">
-                <div class="produto-card">
-                    <div class="produto-imagem-container">
-                        <div class="placeholder-imagem">Carregando...</div>
+        <div class="produtos-grid" id="produtos-container">
+            <div class="produto-card">
+                <div class="produto-imagem-container">
+                    <div class="placeholder-imagem">Carregando...</div>
+                </div>
+                <div class="produto-info">
+                    <div class="produto-titulo">Carregando produtos...</div>
+                    <div class="produto-atributos">
+                        <p>Aguarde enquanto carregamos nosso catálogo</p>
                     </div>
-                    <div class="produto-info">
-                        <div class="produto-titulo">Carregando produtos...</div>
-                        <div class="produto-atributos">
-                            <p>Aguarde enquanto carregamos nosso catálogo</p>
-                        </div>
-                        <div class="produto-preco">R$ 0,00</div>
-                        <button class="add-carrinho" disabled>Carregando</button>
-                    </div>
+                    <div class="produto-preco">R$ 0,00</div>
+                    <button class="add-carrinho" disabled>Carregando</button>
                 </div>
             </div>
         </div>
@@ -101,6 +98,11 @@
     </div>
 
     <div class="feedback" id="feedback"></div>
+
+    <div class="carrinho-icon-flutuante" id="carrinho-icon-flutuante">
+        🛒
+        <span class="carrinho-count" id="carrinho-count-flutuante">0</span>
+    </div>
 
     <script src="script.js"></script>
 </body>
