@@ -22,7 +22,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.5;
     color: var(--cor-texto);
     background-color: #f5f5f5;
@@ -40,20 +40,20 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header-content {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center by default */
-    gap: 0.8rem;
+    gap: 10px;
 }
 
-header .logo {
-    height: 40px; /* Adjust as needed */
-    width: 40px;
-    border-radius: 50%;
-    object-fit: cover;
+.header-content .logo {
+    height: 40px; /* Ajuste conforme necessário */
+    width: auto;
 }
 
 header h1 {
@@ -68,6 +68,8 @@ header h1 {
     max-width: 100%;
     margin: 1rem auto;
     padding: 0 0.8rem;
+    display: flex; /* Adicionado para layout com sidebar */
+    gap: 1rem; /* Adicionado para espaçamento entre sidebar e conteúdo */
 }
 
 /* Estilos para a pesquisa */
@@ -138,19 +140,54 @@ header h1 {
     transform: translateY(-50%) scale(0.98);
 }
 
-/* Estilos para as categorias */
-.categorias {
+/* Estilos para as categorias - Menu Lateral */
+.sidebar-categorias {
+    width: 200px; /* Largura padrão */
+    background-color: white;
+    box-shadow: var(--sombra);
+    border-radius: var(--borda-radius);
+    padding: 1rem;
+    flex-shrink: 0;
     display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-    overflow-x: auto;
-    padding: 0.5rem 0;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
+    flex-direction: column;
+    height: fit-content;
 }
 
-.categorias::-webkit-scrollbar {
-    display: none;
+.sidebar-header {
+    display: none; /* Escondido por padrão em telas maiores */
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--borda);
+    padding-bottom: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.sidebar-header h2 {
+    font-size: 1.1rem;
+    color: var(--cor-primaria);
+}
+
+#fechar-categorias {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0.3rem;
+    transition: transform 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    color: var(--cor-texto-claro);
+}
+
+#fechar-categorias:active {
+    transform: scale(0.9);
+}
+
+.categorias {
+    display: flex;
+    flex-direction: column; /* Lista vertical */
+    gap: 0.5rem;
+    padding: 0.5rem 0;
 }
 
 .categoria-btn {
@@ -167,6 +204,8 @@ header h1 {
     flex-shrink: 0;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+    text-align: left; /* Alinhar texto à esquerda na lista */
+    width: 100%;
 }
 
 .categoria-btn.active {
@@ -177,6 +216,10 @@ header h1 {
 
 .categoria-btn:active {
     transform: scale(0.98);
+}
+
+.main-content {
+    flex-grow: 1;
 }
 
 /* Grid de produtos */
@@ -321,29 +364,30 @@ header h1 {
     }
 }
 
-/* Carrinho de compras */
-.carrinho-icon-flutuante {
-    position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
+/* Carrinho de compras - Ícone flutuante */
+.carrinho-icon {
     background: var(--cor-primaria);
     color: white;
-    width: 50px; /* Slightly larger for better tap target */
-    height: 50px;
-    border-radius: 50%; /* Make it round */
+    width: 48px; /* Aumentado para melhor toque */
+    height: 48px; /* Aumentado para melhor toque */
+    border-radius: 50%; /* Circular */
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
     transition: transform 0.2s ease, background-color 0.2s ease;
-    font-size: 1.5rem; /* Larger icon */
-    z-index: 105; /* Above overlay but below sidebar */
+    font-size: 1.5rem; /* Ícone maior */
+    position: fixed; /* Fixo no canto inferior direito */
+    bottom: 20px;
+    right: 20px;
+    z-index: 105; /* Acima de outros elementos */
+    flex-shrink: 0;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
 }
 
-.carrinho-icon-flutuante:active {
+.carrinho-icon:active {
     transform: scale(0.95);
     background-color: var(--cor-primaria-escura);
 }
@@ -354,10 +398,10 @@ header h1 {
     right: -6px;
     background: var(--cor-erro);
     color: white;
-    width: 20px; /* Slightly larger count */
-    height: 20px;
+    width: 22px; /* Aumentado */
+    height: 22px; /* Aumentado */
     border-radius: 50%;
-    font-size: 0.8rem;
+    font-size: 0.8rem; /* Aumentado */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -737,18 +781,6 @@ header h1 {
     box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.2);
 }
 
-.modal-alert {
-    background-color: var(--cor-erro);
-    color: white;
-    padding: 0.6rem;
-    border-radius: var(--borda-radius);
-    margin-bottom: 1rem;
-    text-align: center;
-    font-size: 0.9rem;
-    display: none; /* Hidden by default */
-}
-
-
 .form-group textarea {
     resize: vertical;
     min-height: 80px;
@@ -816,17 +848,49 @@ header h1 {
     padding: 0.5rem;
 }
 
-/* Specific style to hide SKU */
-.produto-atributos .sku-info {
-    display: none;
-}
+/* Melhorias para telas maiores */
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column; /* Coluna em telas pequenas */
+    }
 
-/* Responsive Styles */
-@media (max-width: 500px) {
-    header .header-content {
-        justify-content: flex-start; /* Align logo and title to the left on small screens */
+    .sidebar-categorias {
+        position: fixed;
+        left: -250px; /* Escondido por padrão */
+        top: 0;
+        height: 100vh;
+        width: 250px; /* Largura da sidebar em mobile */
+        z-index: 100;
+        transition: left 0.3s ease-out;
+        padding: 0; /* Remove padding padrão */
+        border-radius: 0;
+    }
+
+    .sidebar-categorias.open {
+        left: 0;
+    }
+
+    .sidebar-header {
+        display: flex; /* Exibe o header da sidebar em mobile */
+        padding: 1rem;
+        background-color: var(--cor-primaria);
+        color: white;
+        border-radius: 0;
+    }
+
+    .sidebar-header h2 {
+        color: white;
+    }
+
+    #fechar-categorias {
+        color: white;
+    }
+
+    .categorias {
+        padding: 1rem;
     }
 }
+
 
 @media (min-width: 400px) {
     .produtos-grid {
