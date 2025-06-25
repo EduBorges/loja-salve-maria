@@ -12,6 +12,8 @@
     --sombra: 0 2px 4px rgba(0, 0, 0, 0.1);
     --borda: 1px solid rgba(0, 0, 0, 0.1);
     --borda-radius: 6px;
+    /* Adicionada variável para a altura do header para uso posterior */
+    --header-height: 70px; 
 }
 
 /* ---- RESET E CONFIGURAÇÕES GLOBAIS ---- */
@@ -30,22 +32,41 @@ body {
     touch-action: manipulation;
 }
 
-/* ---- HEADER ---- */
+/* ---- HEADER (MODIFICADO) ---- */
 header {
     background-color: var(--cor-primaria);
     color: white;
-    padding: 0.8rem 1rem;
-    text-align: center;
+    padding: 0 1rem; /* Padding horizontal mantido */
     box-shadow: var(--sombra);
     position: sticky;
     top: 0;
     z-index: 100;
+    height: var(--header-height); /* Altura fixa para consistência */
+}
+
+/* NOVO: Container para alinhar logo e título */
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo do header */
+    gap: 1rem; /* Espaçamento entre logo e título */
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+/* NOVO: Estilo para o logotipo */
+.logo-img {
+    height: 45px; /* Altura máxima para o logo */
+    width: auto; /* Largura automática para manter proporção */
 }
 
 header h1 {
     font-size: 1.3rem;
     font-weight: 600;
+    margin: 0; /* Remove margem padrão do h1 */
 }
+
 
 /* ---- LAYOUT PRINCIPAL ---- */
 .container {
@@ -136,6 +157,9 @@ header h1 {
     display: none;
     width: 24px;
     height: 24px;
+    /* Melhora o alinhamento do 'X' */
+    display: none;
+    place-content: center;
 }
 
 /* ---- GRID DE PRODUTOS ---- */
@@ -416,12 +440,19 @@ header h1 {
     border-radius: var(--borda-radius);
 }
 
+/* CORREÇÃO: Estilo para o botão de remover. 
+   Transforma o antigo 'span' em um 'button' para acessibilidade, 
+   mas mantém a aparência de link. */
 .remover-item {
+    background: none;
+    border: none;
     color: var(--cor-erro);
     cursor: pointer;
     font-size: 0.8rem;
     margin-left: auto;
     text-decoration: underline;
+    padding: 0;
+    font-family: inherit;
 }
 
 .carrinho-footer {
@@ -560,7 +591,8 @@ header h1 {
 
     .categorias-sidebar {
         position: sticky;
-        top: 80px; /* Altura do header + margem */
+        /* Usa a variável de altura do header para calcular o top */
+        top: calc(var(--header-height) + 1rem); 
         width: 220px;
         flex-shrink: 0;
         margin-bottom: 0;
