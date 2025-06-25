@@ -8,7 +8,9 @@
     "TAMANHO": "15cm",
     "QTD": 10,
     "PRECO": 15,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1SrnocKBLfeOIVRZciUPJrokXSVDszGau"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1SrnocKBLfeOIVRZciUPJrokXSVDszGau"
+    ],
     "CATEGORIA": "ACESSORIOS"
   },
   {
@@ -20,7 +22,9 @@
     "TAMANHO": "25cm",
     "QTD": 1,
     "PRECO": 50,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1Tes4r0XjAGAa6TiGOQYbfuCtwKj1tRZk"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1Tes4r0XjAGAa6TiGOQYbfuCtwKj1tRZk"
+    ],
     "CATEGORIA": "ARTESANATO"
   },
   {
@@ -32,7 +36,9 @@
     "TAMANHO": "media",
     "QTD": 1,
     "PRECO": 40,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1mmjo3nkWUiqgYBU5KB_uJYETHsvFtTmH"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1mmjo3nkWUiqgYBU5KB_uJYETHsvFtTmH"
+    ],
     "CATEGORIA": "CAMISETA"
   },
   {
@@ -44,7 +50,9 @@
     "TAMANHO": "35 cm",
     "QTD": 1,
     "PRECO": 350,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1BFr71pdmjT8xIBezLUzOpaJu8EoOX0RH"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1BFr71pdmjT8xIBezLUzOpaJu8EoOX0RH"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -56,19 +64,23 @@
     "TAMANHO": "20cm",
     "QTD": 1,
     "PRECO": 89,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=13R_ZMfRXeDlYMd_o-TCITAjeXQOBs_IT"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=13R_ZMfRXeDlYMd_o-TCITAjeXQOBs_IT"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
     "SKU": "15002",
-    "DESCRICAO": "NSª Perpétuo Socorro",
+    "DESCRICAO": "NSª Perpétuo  Socorro",
     "MATERIAL": "Resina",
     "MODELO": "Santo",
     "COR": "Colorido",
     "TAMANHO": "20cm",
     "QTD": 1,
     "PRECO": 79,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=16GNhkhscAcJQ_nzc_Dr5cj3YMN3dBjaS"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=16GNhkhscAcJQ_nzc_Dr5cj3YMN3dBjaS"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -80,7 +92,9 @@
     "TAMANHO": "15cm",
     "QTD": 2,
     "PRECO": 125,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1QH_jb9qu0XXjiU651JQ4pxz2fdpL-ear"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1QH_jb9qu0XXjiU651JQ4pxz2fdpL-ear"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -92,7 +106,9 @@
     "TAMANHO": "20cm",
     "QTD": 1,
     "PRECO": 95,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1FYfMtAigar3ZCIgQQJPLLKAvWhzbB2Ni"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1FYfMtAigar3ZCIgQQJPLLKAvWhzbB2Ni"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -104,7 +120,9 @@
     "TAMANHO": "20cm",
     "QTD": 1,
     "PRECO": 89,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1E9u5O3MTF938UJvdN42QNTD0GdP5PIhy"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1E9u5O3MTF938UJvdN42QNTD0GdP5PIhy"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -116,7 +134,9 @@
     "TAMANHO": "20cm",
     "QTD": 1,
     "PRECO": 85,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1LyO3LvcGc6O5vNoQpqxPghg8HkipIV_y"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1LyO3LvcGc6O5vNoQpqxPghg8HkipIV_y"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -128,7 +148,9 @@
     "TAMANHO": "15cm",
     "QTD": 2,
     "PRECO": 65,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1sTb2p5KrgN3FvRRjVx0_YN77MN3UIr9R"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1sTb2p5KrgN3FvRRjVx0_YN77MN3UIr9R"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -140,7 +162,9 @@
     "TAMANHO": "15cm",
     "QTD": 2,
     "PRECO": 65,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1vqPTqQIgQed7FP8XOVV9NcZo1gP_oWsD"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1vqPTqQIgQed7FP8XOVV9NcZo1gP_oWsD"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -152,7 +176,9 @@
     "TAMANHO": "15cm",
     "QTD": 4,
     "PRECO": 43,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1aG9-K5xwWLkPa9nH2VxpqrFSTZ98vDRk"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1aG9-K5xwWLkPa9nH2VxpqrFSTZ98vDRk"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -164,7 +190,9 @@
     "TAMANHO": "15",
     "QTD": 1,
     "PRECO": 45,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1YoNnFepYpds_T-SQF2xI-enUQNo8rkDz"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1YoNnFepYpds_T-SQF2xI-enUQNo8rkDz"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -176,7 +204,9 @@
     "TAMANHO": "15",
     "QTD": 1,
     "PRECO": 35,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=13RGlFP9_SJX3O_hIBVMF86idI0ULs8G7"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=13RGlFP9_SJX3O_hIBVMF86idI0ULs8G7"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -188,7 +218,9 @@
     "TAMANHO": "15",
     "QTD": 1,
     "PRECO": 65,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1mHJ9zv4ggY5BjMdHX3jXXxwSKFo-JiDx"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1mHJ9zv4ggY5BjMdHX3jXXxwSKFo-JiDx"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -200,7 +232,9 @@
     "TAMANHO": "15",
     "QTD": 1,
     "PRECO": 34,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1CDSV12XsSYK2l0gHtwJ3Z4vCFV3ZX53D"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1CDSV12XsSYK2l0gHtwJ3Z4vCFV3ZX53D"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -212,7 +246,9 @@
     "TAMANHO": "15",
     "QTD": 1,
     "PRECO": 39,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1_quibTdeOEtMtaQIX0ix1xFc17a_KLLg"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1_quibTdeOEtMtaQIX0ix1xFc17a_KLLg"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -224,7 +260,9 @@
     "TAMANHO": "15",
     "QTD": 1,
     "PRECO": 78,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=17LNFiU-CYX35woI1yJHqn8iRPgG8oOAR"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=17LNFiU-CYX35woI1yJHqn8iRPgG8oOAR"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -236,7 +274,9 @@
     "TAMANHO": "20",
     "QTD": 1,
     "PRECO": 89,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1ipR2QUjzGTEhWM_y-bvznlmyD5C7n6no"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1ipR2QUjzGTEhWM_y-bvznlmyD5C7n6no"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -248,7 +288,9 @@
     "TAMANHO": "15",
     "QTD": 1,
     "PRECO": 69,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=14GhgW0fwawChv8crypLyjge5_ZYMknzL"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=14GhgW0fwawChv8crypLyjge5_ZYMknzL"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -260,7 +302,9 @@
     "TAMANHO": "15",
     "QTD": 1,
     "PRECO": 130,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1sa1g42xEAlOpWMNq0mLf97HV9QO_Ohdq"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1sa1g42xEAlOpWMNq0mLf97HV9QO_Ohdq"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -272,11 +316,13 @@
     "TAMANHO": "15",
     "QTD": 1,
     "PRECO": 89,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1kuRH5cRxhFi1kZClDAlimQ3ZU-S4gv6X"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1kuRH5cRxhFi1kZClDAlimQ3ZU-S4gv6X"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
-    "SKU": "15020",
+    "SKU": "15019",
     "DESCRICAO": "São Jorge",
     "MATERIAL": "resina",
     "MODELO": "santo",
@@ -284,7 +330,9 @@
     "TAMANHO": "15",
     "QTD": 1,
     "PRECO": 89,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1zzRiwodE24eiNlyxZn-WrL0VPi-h88EW"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1zzRiwodE24eiNlyxZn-WrL0VPi-h88EW"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -296,19 +344,23 @@
     "TAMANHO": "15",
     "QTD": 1,
     "PRECO": 68,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=155xtcL1HHQx9GcRLPHaCRutlr0YFOzvp"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=155xtcL1HHQx9GcRLPHaCRutlr0YFOzvp"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
     "SKU": "15022",
-    "DESCRICAO": "Anjo da Guarda (Azul)",
+    "DESCRICAO": "Anjo da  Guarda (Azul)",
     "MATERIAL": "resina",
     "MODELO": "santo",
     "COR": "Colorido",
     "TAMANHO": "15",
     "QTD": 1,
     "PRECO": 68,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1MNli0JBtY0DFZTHLCwBUmYc7gln5T5wF"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1MNli0JBtY0DFZTHLCwBUmYc7gln5T5wF"
+    ],
     "CATEGORIA": "IMAGENS"
   },
   {
@@ -320,7 +372,9 @@
     "TAMANHO": "Bolso",
     "QTD": 150,
     "PRECO": 12,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=14zkCxUnEuVNUc2smD4le_0jbK-p0KgfC"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=14zkCxUnEuVNUc2smD4le_0jbK-p0KgfC"
+    ],
     "CATEGORIA": "LIVROS"
   },
   {
@@ -332,7 +386,9 @@
     "TAMANHO": "20cm",
     "QTD": 10,
     "PRECO": 20,
-    "IMAGES": ["https://drive.google.com/thumbnail?id=1amSEnAnfyATnijCpXCPIB6l6AzK_iGHb"],
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1amSEnAnfyATnijCpXCPIB6l6AzK_iGHb"
+    ],
     "CATEGORIA": "TERÇOS"
   }
 ]
