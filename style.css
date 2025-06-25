@@ -27,7 +27,7 @@ body {
     color: var(--cor-texto);
     background-color: #f5f5f5;
     min-height: 100vh;
-    padding-bottom: 60px;
+    padding-bottom: 60px; /* Espaço para o carrinho flutuante em mobile */
     touch-action: manipulation;
 }
 
@@ -35,7 +35,6 @@ header {
     background-color: var(--cor-primaria);
     color: white;
     padding: 0.8rem 1rem;
-    text-align: center;
     box-shadow: var(--sombra);
     position: sticky;
     top: 0;
@@ -48,12 +47,15 @@ header {
 .header-content {
     display: flex;
     align-items: center;
-    gap: 10px;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 0.8rem;
 }
 
-.header-content .logo {
-    height: 40px; /* Ajuste conforme necessário */
-    width: auto;
+.logo {
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%; /* Exemplo: logo circular */
 }
 
 header h1 {
@@ -68,24 +70,25 @@ header h1 {
     max-width: 100%;
     margin: 1rem auto;
     padding: 0 0.8rem;
-    display: flex; /* Adicionado para layout com sidebar */
-    gap: 1rem; /* Adicionado para espaçamento entre sidebar e conteúdo */
+}
+
+.sidebar-and-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 /* Estilos para a pesquisa */
 .pesquisa-container {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
     position: relative;
-    flex-wrap: wrap;
+    margin-bottom: 1rem;
 }
 
 .pesquisa-input {
     flex: 1;
-    min-width: 0;
-    padding: 0.6rem 1.8rem 0.6rem 0.8rem;
+    padding: 0.6rem 2.5rem 0.6rem 0.8rem; /* Espaço para ícone de lupa */
     border: var(--borda);
     border-radius: var(--borda-radius);
     font-size: 0.9rem;
@@ -99,27 +102,11 @@ header h1 {
     box-shadow: 0 0 0 2px rgba(111, 188, 227, 0.2);
 }
 
-.pesquisa-btn, .limpar-pesquisa {
-    padding: 0;
-    background-color: var(--cor-primaria);
-    color: white;
-    border: none;
-    border-radius: var(--borda-radius);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
-    width: 36px;
-    height: 36px;
-    flex-shrink: 0;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-}
-
-.pesquisa-btn:active, .limpar-pesquisa:active {
-    background-color: var(--cor-primaria-escura);
-    transform: scale(0.98);
+.pesquisa-icon {
+    position: absolute;
+    left: 0.8rem;
+    color: var(--cor-texto-claro);
+    pointer-events: none; /* Permite clicar através do ícone */
 }
 
 .limpar-pesquisa {
@@ -130,9 +117,14 @@ header h1 {
     background: transparent;
     color: var(--cor-texto-claro);
     font-size: 0.9rem;
-    display: none;
+    border: none;
+    cursor: pointer;
+    display: none; /* Escondido por padrão */
     width: 24px;
     height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .limpar-pesquisa:active {
@@ -140,54 +132,16 @@ header h1 {
     transform: translateY(-50%) scale(0.98);
 }
 
-/* Estilos para as categorias - Menu Lateral */
-.sidebar-categorias {
-    width: 200px; /* Largura padrão */
-    background-color: white;
-    box-shadow: var(--sombra);
-    border-radius: var(--borda-radius);
-    padding: 1rem;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    height: fit-content;
-}
-
-.sidebar-header {
-    display: none; /* Escondido por padrão em telas maiores */
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: var(--borda);
-    padding-bottom: 0.8rem;
-    margin-bottom: 0.8rem;
-}
-
-.sidebar-header h2 {
-    font-size: 1.1rem;
-    color: var(--cor-primaria);
-}
-
-#fechar-categorias {
-    background: none;
-    border: none;
-    font-size: 1.3rem;
-    cursor: pointer;
-    padding: 0.3rem;
-    transition: transform 0.2s;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-    color: var(--cor-texto-claro);
-}
-
-#fechar-categorias:active {
-    transform: scale(0.9);
-}
-
+/* Estilos para as categorias */
 .categorias {
     display: flex;
-    flex-direction: column; /* Lista vertical */
+    flex-direction: column;
     gap: 0.5rem;
     padding: 0.5rem 0;
+    background-color: white;
+    border-radius: var(--borda-radius);
+    box-shadow: var(--sombra);
+    padding: 1rem;
 }
 
 .categoria-btn {
@@ -204,8 +158,8 @@ header h1 {
     flex-shrink: 0;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
-    text-align: left; /* Alinhar texto à esquerda na lista */
     width: 100%;
+    text-align: left;
 }
 
 .categoria-btn.active {
@@ -218,16 +172,11 @@ header h1 {
     transform: scale(0.98);
 }
 
-.main-content {
-    flex-grow: 1;
-}
-
 /* Grid de produtos */
 .produtos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 0.8rem;
-    margin-top: 0.8rem;
 }
 
 .produto-card {
@@ -364,25 +313,28 @@ header h1 {
     }
 }
 
-/* Carrinho de compras - Ícone flutuante */
+/* Carrinho de compras flutuante */
+.carrinho-flutuante {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 105; /* Acima de outros elementos */
+}
+
 .carrinho-icon {
     background: var(--cor-primaria);
     color: white;
-    width: 48px; /* Aumentado para melhor toque */
-    height: 48px; /* Aumentado para melhor toque */
+    width: 45px; /* Aumentado para melhor toque */
+    height: 45px;
     border-radius: 50%; /* Circular */
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
+    box-shadow: var(--sombra);
     transition: transform 0.2s ease, background-color 0.2s ease;
-    font-size: 1.5rem; /* Ícone maior */
-    position: fixed; /* Fixo no canto inferior direito */
-    bottom: 20px;
-    right: 20px;
-    z-index: 105; /* Acima de outros elementos */
-    flex-shrink: 0;
+    font-size: 1.3rem; /* Ícone maior */
+    position: relative;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
 }
@@ -394,14 +346,14 @@ header h1 {
 
 .carrinho-count {
     position: absolute;
-    top: -6px;
-    right: -6px;
+    top: -4px; /* Ajuste para centralizar visualmente */
+    right: -4px;
     background: var(--cor-erro);
     color: white;
-    width: 22px; /* Aumentado */
-    height: 22px; /* Aumentado */
+    width: 20px; /* Maior para melhor visualização */
+    height: 20px;
     border-radius: 50%;
-    font-size: 0.8rem; /* Aumentado */
+    font-size: 0.75rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -439,7 +391,7 @@ header h1 {
     z-index: 100;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    overflow-y: hidden; /* Controlado pelo conteúdo */
     -webkit-overflow-scrolling: touch;
 }
 
@@ -483,7 +435,7 @@ header h1 {
 
 .carrinho-content {
     flex-grow: 1;
-    overflow-y: auto;
+    overflow-y: auto; /* Scroll apenas para o conteúdo dos itens */
     padding: 1rem;
 }
 
@@ -768,17 +720,17 @@ header h1 {
     background-color: white;
 }
 
+.form-group input.error,
+.form-group textarea.error {
+    border-color: var(--cor-erro);
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.2);
+}
+
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--cor-primaria);
     box-shadow: 0 0 0 2px rgba(111, 188, 227, 0.2);
-}
-
-.form-group.error input,
-.form-group.error textarea {
-    border-color: var(--cor-erro);
-    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.2);
 }
 
 .form-group textarea {
@@ -849,49 +801,6 @@ header h1 {
 }
 
 /* Melhorias para telas maiores */
-@media (max-width: 767px) {
-    .container {
-        flex-direction: column; /* Coluna em telas pequenas */
-    }
-
-    .sidebar-categorias {
-        position: fixed;
-        left: -250px; /* Escondido por padrão */
-        top: 0;
-        height: 100vh;
-        width: 250px; /* Largura da sidebar em mobile */
-        z-index: 100;
-        transition: left 0.3s ease-out;
-        padding: 0; /* Remove padding padrão */
-        border-radius: 0;
-    }
-
-    .sidebar-categorias.open {
-        left: 0;
-    }
-
-    .sidebar-header {
-        display: flex; /* Exibe o header da sidebar em mobile */
-        padding: 1rem;
-        background-color: var(--cor-primaria);
-        color: white;
-        border-radius: 0;
-    }
-
-    .sidebar-header h2 {
-        color: white;
-    }
-
-    #fechar-categorias {
-        color: white;
-    }
-
-    .categorias {
-        padding: 1rem;
-    }
-}
-
-
 @media (min-width: 400px) {
     .produtos-grid {
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -935,7 +844,29 @@ header h1 {
 
 @media (min-width: 768px) {
     body {
-        padding-bottom: 0;
+        padding-bottom: 0; /* Não precisa de padding para o carrinho flutuante em desktop */
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 1.5rem auto;
+    }
+
+    .sidebar-and-content {
+        flex-direction: row; /* Sidebar e conteúdo lado a lado */
+        align-items: flex-start;
+    }
+
+    .sidebar {
+        flex: 0 0 220px; /* Largura fixa para a sidebar */
+        margin-right: 1.5rem;
+        position: sticky;
+        top: calc(1rem + 56px); /* Altura do header + margem */
+        align-self: flex-start;
+    }
+
+    .main-content {
+        flex: 1;
     }
     
     header {
@@ -946,13 +877,8 @@ header h1 {
         font-size: 1.5rem;
     }
     
-    .container {
-        max-width: 1200px;
-        margin: 1.5rem auto;
-    }
-    
     .pesquisa-input {
-        max-width: 300px;
+        max-width: none; /* Remove limitação de largura */
     }
     
     .produtos-grid {
@@ -983,5 +909,10 @@ header h1 {
     
     .modal-container {
         max-width: 400px;
+    }
+
+    .carrinho-flutuante {
+        right: 2rem; /* Ajusta posição em desktop */
+        bottom: 2rem;
     }
 }
