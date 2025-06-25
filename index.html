@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="header-content">
-            <img src="https://via.placeholder.com/40" alt="Logo Loja Salve Maria Imaculada" class="logo">
+            <img src="https://example.com/your-logo.png" alt="Logotipo Loja Salve Maria Imaculada" class="logo">
             <h1>Loja Salve Maria Imaculada</h1>
         </div>
     </header>
@@ -24,27 +24,39 @@
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
             </button>
+            <div class="carrinho-icon" id="carrinho-icon">
+                🛒
+                <span class="carrinho-count" id="carrinho-count">0</span>
+            </div>
         </div>
 
-        <div class="categorias">
-            <button class="categoria-btn active" data-categoria="todos">Todos</button>
+        <aside class="sidebar-categorias" id="sidebar-categorias">
+            <div class="sidebar-header">
+                <h2>Categorias</h2>
+                <button id="fechar-categorias">✕</button>
             </div>
-
-        <div class="produtos-grid" id="produtos-container">
-            <div class="produto-card">
-                <div class="produto-imagem-container">
-                    <div class="placeholder-imagem">Carregando...</div>
+            <div class="categorias" id="categorias-menu">
+                <button class="categoria-btn active" data-categoria="todos">Todos</button>
                 </div>
-                <div class="produto-info">
-                    <div class="produto-titulo">Carregando produtos...</div>
-                    <div class="produto-atributos">
-                        <p>Aguarde enquanto carregamos nosso catálogo</p>
+        </aside>
+
+        <main class="main-content">
+            <div class="produtos-grid" id="produtos-container">
+                <div class="produto-card">
+                    <div class="produto-imagem-container">
+                        <div class="placeholder-imagem">Carregando...</div>
                     </div>
-                    <div class="produto-preco">R$ 0,00</div>
-                    <button class="add-carrinho" disabled>Carregando</button>
+                    <div class="produto-info">
+                        <div class="produto-titulo">Carregando produtos...</div>
+                        <div class="produto-atributos">
+                            <p>Aguarde enquanto carregamos nosso catálogo</p>
+                        </div>
+                        <div class="produto-preco">R$ 0,00</div>
+                        <button class="add-carrinho" disabled>Carregando</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
 
     <div class="overlay" id="overlay"></div>
@@ -86,7 +98,7 @@
                     <input type="tel" id="telefone-cliente" placeholder="(00) 00000-0000" required>
                 </div>
                 <div class="form-group">
-                    <label for="observacoes">Observações (opcional):</label>
+                    <label for="observacoes">Observações:</label>
                     <textarea id="observacoes" rows="3" placeholder="Alguma informação adicional sobre seu pedido..."></textarea>
                 </div>
                 <div class="modal-buttons">
@@ -98,11 +110,6 @@
     </div>
 
     <div class="feedback" id="feedback"></div>
-
-    <div class="carrinho-icon-flutuante" id="carrinho-icon-flutuante">
-        🛒
-        <span class="carrinho-count" id="carrinho-count-flutuante">0</span>
-    </div>
 
     <script src="script.js"></script>
 </body>
