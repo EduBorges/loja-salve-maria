@@ -8,7 +8,10 @@
 </head>
 <body>
     <header>
-        <h1>Loja Salve Maria Imaculada</h1>
+        <div class="header-content">
+            <img src="https://via.placeholder.com/40x40?text=Logo" alt="Loja Salve Maria Imaculada Logo" class="logo">
+            <h1>Loja Salve Maria Imaculada</h1>
+        </div>
     </header>
 
     <div class="container">
@@ -23,7 +26,7 @@
             </button>
         </div>
 
-        <div class="categorias" id="categorias-container">
+        <div class="categorias">
             <button class="categoria-btn active" data-categoria="todos">Todos</button>
             </div>
 
@@ -44,7 +47,7 @@
         </div>
     </div>
 
-    <div class="carrinho-icon-flutuante" id="carrinho-icon">
+    <div class="carrinho-float-icon" id="carrinho-float-icon">
         🛒
         <span class="carrinho-count" id="carrinho-count">0</span>
     </div>
@@ -56,9 +59,11 @@
             <h2>Seu Carrinho</h2>
             <button id="fechar-carrinho">✕</button>
         </div>
+        
         <div class="carrinho-content" id="carrinho-content">
             <div class="carrinho-vazio">Seu carrinho está vazio</div>
-        </div>
+            </div>
+        
         <div class="carrinho-footer">
             <div class="carrinho-total">
                 <span>Total:</span>
@@ -78,12 +83,12 @@
             <h3>Informações para o Pedido</h3>
             <form id="dados-cliente">
                 <div class="form-group">
-                    <label for="nome-cliente">Seu Nome Completo:</label>
+                    <label for="nome-cliente">Seu Nome Completo:<span class="required-star">*</span></label>
                     <input type="text" id="nome-cliente" required>
                 </div>
                 <div class="form-group">
-                    <label for="telefone-cliente">WhatsApp (opcional):</label>
-                    <input type="tel" id="telefone-cliente" placeholder="(00) 00000-0000">
+                    <label for="telefone-cliente">WhatsApp:<span class="required-star">*</span></label>
+                    <input type="tel" id="telefone-cliente" placeholder="(00) 00000-0000" required>
                 </div>
                 <div class="form-group">
                     <label for="observacoes">Observações:</label>
