@@ -22,7 +22,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: -apple-system, BlinkMacMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.5;
     color: var(--cor-texto);
     background-color: #f5f5f5;
@@ -45,15 +45,15 @@ header {
 .header-content {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center content by default */
-    max-width: 1200px;
-    margin: 0 auto;
+    justify-content: center; /* Center by default */
+    gap: 0.8rem;
 }
 
 header .logo {
     height: 40px; /* Adjust as needed */
-    margin-right: 10px;
-    vertical-align: middle;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 header h1 {
@@ -321,32 +321,31 @@ header h1 {
     }
 }
 
-/* Carrinho de compras flutuante */
-.carrinho-float-icon {
+/* Carrinho de compras */
+.carrinho-icon-flutuante {
     position: fixed;
     bottom: 1.5rem;
     right: 1.5rem;
     background: var(--cor-primaria);
     color: white;
-    width: 50px;
+    width: 50px; /* Slightly larger for better tap target */
     height: 50px;
     border-radius: 50%; /* Make it round */
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+    transition: transform 0.2s ease, background-color 0.2s ease;
     font-size: 1.5rem; /* Larger icon */
     z-index: 105; /* Above overlay but below sidebar */
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
 }
 
-.carrinho-float-icon:active {
+.carrinho-icon-flutuante:active {
     transform: scale(0.95);
     background-color: var(--cor-primaria-escura);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .carrinho-count {
@@ -355,15 +354,14 @@ header h1 {
     right: -6px;
     background: var(--cor-erro);
     color: white;
-    width: 22px; /* Larger count bubble */
-    height: 22px; /* Larger count bubble */
+    width: 20px; /* Slightly larger count */
+    height: 20px;
     border-radius: 50%;
-    font-size: 0.8rem; /* Larger font for count */
+    font-size: 0.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    display: none; /* Hidden by default */
 }
 
 .overlay {
@@ -389,7 +387,7 @@ header h1 {
     right: -100%;
     top: 0;
     width: 100%;
-    max-width: 300px; /* Reduced width */
+    max-width: 100%;
     height: 100vh;
     background: white;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
@@ -397,7 +395,7 @@ header h1 {
     z-index: 100;
     display: flex;
     flex-direction: column;
-    overflow-y: hidden; /* Hide overflow initially, manage with max-height */
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -441,10 +439,8 @@ header h1 {
 
 .carrinho-content {
     flex-grow: 1;
+    overflow-y: auto;
     padding: 1rem;
-    max-height: calc(100vh - 120px); /* Adjust based on header/footer height */
-    overflow-y: auto; /* Scrollbar when content exceeds max-height */
-    -webkit-overflow-scrolling: touch;
 }
 
 .carrinho-vazio {
@@ -735,20 +731,27 @@ header h1 {
     box-shadow: 0 0 0 2px rgba(111, 188, 227, 0.2);
 }
 
-.form-group textarea {
-    resize: vertical;
-    min-height: 80px;
-}
-
-.form-group input.invalid,
-.form-group textarea.invalid {
+.form-group.error input,
+.form-group.error textarea {
     border-color: var(--cor-erro);
     box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.2);
 }
 
-.required-star {
-    color: var(--cor-erro);
-    margin-left: 4px;
+.modal-alert {
+    background-color: var(--cor-erro);
+    color: white;
+    padding: 0.6rem;
+    border-radius: var(--borda-radius);
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    display: none; /* Hidden by default */
+}
+
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
 }
 
 .modal-buttons {
@@ -813,7 +816,18 @@ header h1 {
     padding: 0.5rem;
 }
 
-/* Melhorias para telas maiores */
+/* Specific style to hide SKU */
+.produto-atributos .sku-info {
+    display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 500px) {
+    header .header-content {
+        justify-content: flex-start; /* Align logo and title to the left on small screens */
+    }
+}
+
 @media (min-width: 400px) {
     .produtos-grid {
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -847,7 +861,7 @@ header h1 {
     }
     
     .carrinho-sidebar {
-        max-width: 350px; /* Adjust sidebar max-width for tablets */
+        max-width: 380px;
     }
     
     .modal-container {
@@ -864,10 +878,6 @@ header h1 {
         padding: 1rem;
     }
     
-    .header-content {
-        justify-content: flex-start; /* Align logo and title to the left on larger screens */
-    }
-
     header h1 {
         font-size: 1.5rem;
     }
@@ -877,10 +887,6 @@ header h1 {
         margin: 1.5rem auto;
     }
     
-    .pesquisa-container {
-        flex-wrap: nowrap; /* Prevent wrapping on larger screens */
-    }
-
     .pesquisa-input {
         max-width: 300px;
     }
@@ -908,22 +914,10 @@ header h1 {
     }
     
     .carrinho-sidebar {
-        max-width: 400px; /* Adjust sidebar max-width for desktops */
+        max-width: 400px;
     }
     
     .modal-container {
         max-width: 400px;
-    }
-    .carrinho-float-icon {
-        bottom: 2rem;
-        right: 2rem;
-        width: 60px; /* Larger icon on desktop */
-        height: 60px; /* Larger icon on desktop */
-        font-size: 1.8rem; /* Larger font size for icon */
-    }
-    .carrinho-count {
-        width: 25px; /* Larger count bubble on desktop */
-        height: 25px; /* Larger count bubble on desktop */
-        font-size: 0.9rem; /* Larger font for count on desktop */
     }
 }
