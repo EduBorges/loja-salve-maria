@@ -1,36 +1,3 @@
-// Dados dos produtos movidos para o arquivo JavaScript
-const produtosData = [
-  {
-    "SKU": "1",
-    "DESCRICAO": "Pingente São Bento",
-    "MATERIAL": "metal",
-    "MODELO": "colar",
-    "COR": "outros",
-    "TAMANHO": "15",
-    "QTD": 10,
-    "PRECO": 15,
-    "IMAGES": [
-      "https://drive.google.com/thumbnail?id=1SrnocKBLfeOIVRZciUPJrokXSVDszGau"
-    ],
-    "CATEGORIA": "ACESSORIOS"
-  },
-  // ... (insira todos os outros produtos aqui)
-  {
-    "SKU": "25000",
-    "DESCRICAO": "Terço",
-    "MATERIAL": "Madeira",
-    "MODELO": "Tradicional",
-    "COR": "Mogno",
-    "TAMANHO": "20",
-    "QTD": 10,
-    "PRECO": 20,
-    "IMAGES": [
-      "https://drive.google.com/thumbnail?id=1amSEnAnfyATnijCpXCPIB6l6AzK_iGHb"
-    ],
-    "CATEGORIA": "TERÇOS"
-  }
-];
-
 // Configurações
 const TELEFONE_LOJA = "5515981475186";
 
