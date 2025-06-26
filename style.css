@@ -162,8 +162,8 @@ header h1 {
 .categorias {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+    gap: 0.4rem;
+    margin-bottom: 0.9rem;
     overflow-y: visible;
     max-height: none;
     padding-right: 0;
