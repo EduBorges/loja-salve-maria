@@ -9,13 +9,12 @@
 <body>
     <header>
         <div class="logo-container">
-            <img src="https://via.placeholder.com/50" alt="Logo" class="logo">
+            <img src="https://via.placeholder.com/50x50?text=LOGO" alt="Logo" class="logo">
         </div>
         <h1>Loja Salve Maria Imaculada</h1>
     </header>
 
     <div class="container">
-        <!-- Campo de pesquisa -->
         <div class="pesquisa-container">
             <button class="pesquisa-btn" id="pesquisa-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -30,29 +29,28 @@
         <div class="menu-lateral">
             <div class="categorias" id="categorias-container">
                 <button class="categoria-btn active" data-categoria="todos">Todos</button>
-                <!-- As categorias serão geradas dinamicamente pelo JavaScript -->
             </div>
         </div>
 
-        <div class="produtos-grid" id="produtos-container">
-            <!-- Produtos serão carregados dinamicamente aqui -->
-            <div class="produto-card">
-                <div class="produto-imagem-container">
-                    <div class="placeholder-imagem">Carregando...</div>
-                </div>
-                <div class="produto-info">
-                    <div class="produto-titulo">Carregando produtos...</div>
-                    <div class="produto-atributos">
-                        <p>Aguarde enquanto carregamos nosso catálogo</p>
+        <div class="produtos-container">
+            <div class="produtos-grid" id="produtos-container">
+                <div class="produto-card">
+                    <div class="produto-imagem-container">
+                        <div class="placeholder-imagem">Carregando...</div>
                     </div>
-                    <div class="produto-preco">R$ 0,00</div>
-                    <button class="add-carrinho" disabled>Carregando</button>
+                    <div class="produto-info">
+                        <div class="produto-titulo">Carregando produtos...</div>
+                        <div class="produto-atributos">
+                            <p>Aguarde enquanto carregamos nosso catálogo</p>
+                        </div>
+                        <div class="produto-preco">R$ 0,00</div>
+                        <button class="add-carrinho" disabled>Carregando</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Carrinho flutuante -->
     <div class="carrinho-flutuante">
         <div class="carrinho-icon" id="carrinho-icon">
             🛒
@@ -66,7 +64,6 @@
             
             <div class="carrinho-content" id="carrinho-content">
                 <div class="carrinho-vazio">Seu carrinho está vazio</div>
-                <!-- Itens do carrinho serão adicionados aqui -->
             </div>
             
             <div class="carrinho-footer">
@@ -84,7 +81,6 @@
         </div>
     </div>
 
-    <!-- Modal de confirmação do pedido -->
     <div class="modal-overlay" id="modal-overlay">
         <div class="modal-container">
             <h3>Informações para o Pedido</h3>
@@ -109,10 +105,8 @@
         </div>
     </div>
 
-    <!-- Feedback para o usuário -->
     <div class="feedback" id="feedback"></div>
 
-    <script src="produtos.json"></script>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
