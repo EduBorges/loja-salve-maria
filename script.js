@@ -27,10 +27,28 @@ const finalizarPedidoBtn = document.getElementById('finalizar-pedido');
 
 // Função para carregar produtos
 function carregarProdutos() {
-    produtos = produtosData;
-    gerarBotoesCategoria();
-    renderizarProdutos();
-    atualizarCarrinho();
+    fetch('produtos.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao carregar produtos');
+            }
+            return response.json();
+        })
+        .then(data => {
+            produtos = data;
+            gerarBotoesCategoria();
+            renderizarProdutos();
+            atualizarCarrinho();
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            mostrarFeedback('Erro ao carregar produtos', 'error');
+            produtosContainer.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center; padding: 2rem;">
+                    <p>Erro ao carregar os produtos. Por favor, recarregue a página.</p>
+                </div>
+            `;
+        });
 }
 
 // Função para gerar os botões de categoria dinamicamente
