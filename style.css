@@ -34,6 +34,7 @@ body {
 header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: var(--cor-primaria);
     color: white;
     padding: 0.8rem 1rem;
@@ -42,6 +43,27 @@ header {
     top: 0;
     z-index: 100;
     gap: 1rem;
+}
+
+header .carrinho-flutuante {
+    position: relative;
+    margin-left: auto;
+    pointer-events: auto;
+}
+
+header .carrinho-icon {
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+}
+
+header .carrinho-count {
+    top: -3px;
+    right: -3px;
+    width: 18px;
+    height: 18px;
+    font-size: 0.65rem;
 }
 
 .logo-container {
@@ -69,6 +91,7 @@ header h1 {
     overflow: hidden;
     text-overflow: ellipsis;
     flex-grow: 1;
+    text-align: center;
 }
 
 .container {
@@ -311,62 +334,7 @@ header h1 {
     transform: scale(0.98);
 }
 
-/* Carrinho flutuante */
-.carrinho-flutuante {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.5rem;
-    pointer-events: none;
-}
-
-.carrinho-flutuante > * {
-    pointer-events: auto;
-}
-
-.carrinho-icon {
-    background: var(--cor-primaria);
-    color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: var(--sombra);
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    font-size: 1.3rem;
-    position: relative;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-}
-
-.carrinho-icon:active {
-    transform: scale(0.95);
-    background-color: var(--cor-primaria-escura);
-}
-
-.carrinho-count {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background: var(--cor-erro);
-    color: white;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    font-size: 0.7rem;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-}
-
+/* Carrinho sidebar */
 .carrinho-sidebar {
     width: 300px;
     max-width: 90vw;
@@ -381,6 +349,11 @@ header h1 {
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+    position: fixed;
+    bottom: auto;
+    top: 70px;
+    right: 1rem;
+    z-index: 100;
 }
 
 .carrinho-sidebar.open {
