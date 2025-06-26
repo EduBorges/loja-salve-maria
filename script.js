@@ -1,3 +1,36 @@
+// Dados dos produtos movidos para o arquivo JavaScript
+const produtosData = [
+  {
+    "SKU": "1",
+    "DESCRICAO": "Pingente São Bento",
+    "MATERIAL": "metal",
+    "MODELO": "colar",
+    "COR": "outros",
+    "TAMANHO": "15",
+    "QTD": 10,
+    "PRECO": 15,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1SrnocKBLfeOIVRZciUPJrokXSVDszGau"
+    ],
+    "CATEGORIA": "ACESSORIOS"
+  },
+  // ... (insira todos os outros produtos aqui)
+  {
+    "SKU": "25000",
+    "DESCRICAO": "Terço",
+    "MATERIAL": "Madeira",
+    "MODELO": "Tradicional",
+    "COR": "Mogno",
+    "TAMANHO": "20",
+    "QTD": 10,
+    "PRECO": 20,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1amSEnAnfyATnijCpXCPIB6l6AzK_iGHb"
+    ],
+    "CATEGORIA": "TERÇOS"
+  }
+];
+
 // Configurações
 const TELEFONE_LOJA = "5515981475186";
 
@@ -275,225 +308,4 @@ function atualizarCarrinho() {
             <div class="carrinho-item-preco">R$ ${((item.PRECO || 0) * (item.quantidade || 1)).toFixed(2).replace('.', ',')}</div>
             <div class="carrinho-item-controles">
                 <button class="quantidade-btn" data-sku="${item.SKU || ''}" data-action="decrementar">-</button>
-                <input type="number" class="quantidade-input" value="${item.quantidade || 1}" min="1" max="2" data-sku="${item.SKU || ''}">
-                <button class="quantidade-btn" data-sku="${item.SKU || ''}" data-action="incrementar">+</button>
-                <span class="remover-item" data-sku="${item.SKU || ''}">Remover</span>
-            </div>
-        `;
-        
-        carrinhoItem.appendChild(detalhes);
-        carrinhoContent.appendChild(carrinhoItem);
-    });
-    
-    // Atualiza total
-    carrinhoTotal.textContent = total.toFixed(2).replace('.', ',');
-    
-    // Adiciona event listeners aos controles de quantidade
-    document.querySelectorAll('.quantidade-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const sku = e.target.getAttribute('data-sku');
-            const action = e.target.getAttribute('data-action');
-            const input = e.target.parentElement.querySelector('.quantidade-input');
-            
-            if (action === 'incrementar') {
-                input.value = parseInt(input.value) + 1;
-            } else if (action === 'decrementar') {
-                input.value = Math.max(1, parseInt(input.value) - 1);
-            }
-            
-            input.dispatchEvent(new Event('change'));
-        });
-    });
-    
-    document.querySelectorAll('.quantidade-input').forEach(input => {
-        input.addEventListener('change', (e) => {
-            const sku = e.target.getAttribute('data-sku');
-            const novaQuantidade = parseInt(e.target.value) || 1;
-            atualizarQuantidade(sku, novaQuantidade);
-        });
-    });
-    
-    document.querySelectorAll('.remover-item').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const sku = e.target.getAttribute('data-sku');
-            removerDoCarrinho(sku);
-        });
-    });
-}
-
-// Finalizar pedido via WhatsApp
-function finalizarPedidoWhatsApp() {
-    if (carrinho.length === 0) {
-        mostrarFeedback('Seu carrinho está vazio!', 'error');
-        return;
-    }
-    
-    modalOverlay.style.display = 'flex';
-    modalOverlay.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    document.body.style.overflow = 'hidden';
-    
-    setTimeout(() => {
-        document.getElementById('nome-cliente').focus();
-    }, 100);
-}
-
-// Formatar telefone
-document.getElementById('telefone-cliente').addEventListener('input', function(e) {
-    let value = e.target.value.replace(/\D/g, '');
-    if (value.length > 11) value = value.substring(0, 11);
-    
-    if (value.length > 0) {
-        value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
-        if (value.length > 10) {
-            value = value.replace(/(\d)(\d{4})$/, '$1-$2');
-        } else {
-            value = value.replace(/(\d)(\d{3})$/, '$1-$2');
-        }
-    }
-    
-    e.target.value = value;
-});
-
-// Enviar pedido quando o formulário for submetido
-formDadosCliente.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const nomeCliente = document.getElementById('nome-cliente').value.trim();
-    const telefoneCliente = document.getElementById('telefone-cliente').value.replace(/\D/g, '');
-    const observacoes = document.getElementById('observacoes').value.trim();
-    
-    // Validação dos campos obrigatórios
-    if (!nomeCliente || !telefoneCliente) {
-        if (!nomeCliente) {
-            document.getElementById('nome-cliente').style.borderColor = 'var(--cor-erro)';
-        }
-        if (!telefoneCliente) {
-            document.getElementById('telefone-cliente').style.borderColor = 'var(--cor-erro)';
-        }
-        mostrarFeedback('Falta informação! Preencha os campos obrigatórios.', 'error');
-        return;
-    }
-    
-    let mensagem = `*Pedido da Loja Salve Maria Imaculada*\n\n`;
-    mensagem += `*Cliente:* ${nomeCliente}\n`;
-    mensagem += `*WhatsApp:* ${telefoneCliente}\n`;
-    
-    mensagem += `\n*Itens do Pedido:*\n\n`;
-    
-    carrinho.forEach((item, index) => {
-        mensagem += `*${index + 1}. ${item.DESCRICAO}*\n`;
-        mensagem += `   - Valor unitário: R$ ${item.PRECO.toFixed(2).replace('.', ',')}\n`;
-        mensagem += `   - Quantidade: ${item.quantidade}\n`;
-        mensagem += `   - Subtotal: R$ ${(item.PRECO * item.quantidade).toFixed(2).replace('.', ',')}\n`;
-        mensagem += `   - SKU: ${item.SKU}\n`;
-        mensagem += `----------\n\n`;
-    });
-    
-    const total = carrinho.reduce((sum, item) => sum + (item.PRECO * item.quantidade), 0);
-    mensagem += `*Total do Pedido:* R$ ${total.toFixed(2).replace('.', ',')}\n\n`;
-    
-    if (observacoes) {
-        mensagem += `*Observações:*\n${observacoes}\n\n`;
-    }
-    
-    mensagem += `Confirmar os itens se estão disponíveis em estoque e valores para entrega`;
-    
-    const mensagemCodificada = encodeURIComponent(mensagem);
-    
-    modalOverlay.style.display = 'none';
-    document.body.style.overflow = '';
-    
-    formDadosCliente.reset();
-    
-    window.open(`https://wa.me/${TELEFONE_LOJA}?text=${mensagemCodificada}`, '_blank');
-    
-    carrinho = [];
-    localStorage.removeItem('carrinho');
-    atualizarCarrinho();
-    
-    mostrarFeedback('Pedido enviado com sucesso!');
-});
-
-// Fechar modal ao clicar no botão cancelar
-btnCancelar.addEventListener('click', function() {
-    modalOverlay.style.display = 'none';
-    document.body.style.overflow = '';
-});
-
-// Fechar modal ao clicar fora
-modalOverlay.addEventListener('click', function(e) {
-    if (e.target === modalOverlay) {
-        modalOverlay.style.display = 'none';
-        document.body.style.overflow = '';
-    }
-});
-
-// Mostrar feedback
-function mostrarFeedback(texto, tipo = 'success') {
-    feedback.textContent = texto;
-    feedback.className = 'feedback';
-    feedback.classList.add(tipo === 'error' ? 'error' : 'show');
-    
-    setTimeout(() => {
-        feedback.classList.remove('show');
-    }, 3000);
-}
-
-// Alternar carrinho (abrir/fechar)
-function toggleCarrinho() {
-    carrinhoAberto = !carrinhoAberto;
-    if (carrinhoAberto) {
-        carrinhoSidebar.classList.add('open');
-    } else {
-        carrinhoSidebar.classList.remove('open');
-    }
-}
-
-// Event Listeners para pesquisa
-pesquisaInput.addEventListener('input', pesquisarProdutos);
-pesquisaBtn.addEventListener('click', pesquisarProdutos);
-limparPesquisaBtn.addEventListener('click', () => {
-    pesquisaInput.value = '';
-    termoPesquisa = '';
-    limparPesquisaBtn.style.display = 'none';
-    renderizarProdutos();
-});
-
-// Event Listeners para o carrinho
-carrinhoIcon.addEventListener('click', toggleCarrinho);
-
-// Fechar carrinho ao clicar fora
-document.addEventListener('click', (e) => {
-    if (carrinhoAberto && 
-        !e.target.closest('.carrinho-sidebar') && 
-        !e.target.closest('.carrinho-icon')) {
-        toggleCarrinho();
-    }
-});
-
-finalizarPedidoBtn.addEventListener('click', finalizarPedidoWhatsApp);
-
-// Inicialização
-document.addEventListener('DOMContentLoaded', () => {
-    // Tenta carregar o carrinho do localStorage
-    try {
-        const storedCarrinho = localStorage.getItem('carrinho');
-        if (storedCarrinho) {
-            carrinho = JSON.parse(storedCarrinho);
-        }
-    } catch (e) {
-        console.error('Erro ao carregar carrinho do localStorage:', e);
-        localStorage.removeItem('carrinho');
-    }
-
-    carregarProdutos();
-    
-    // Resetar bordas dos campos ao digitar
-    document.getElementById('nome-cliente').addEventListener('input', function() {
-        this.style.borderColor = '';
-    });
-    
-    document.getElementById('telefone-cliente').addEventListener('input', function() {
-        this.style.borderColor = '';
-    });
-});
+ 
