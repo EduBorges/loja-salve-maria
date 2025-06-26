@@ -452,10 +452,51 @@ function mostrarFeedback(texto, tipo = 'success') {
     feedback.className = 'feedback';
     feedback.classList.add(tipo === 'error' ? 'error' : 'show');
     
+    // Aumentar o tempo de exibição para 3 segundos (3000ms)
     setTimeout(() => {
         feedback.classList.remove('show');
     }, 3000);
 }
+
+// Localize a função adicionarAoCarrinho e atualize a verificação de limite:
+function adicionarAoCarrinho(sku) {
+    const produto = produtos.find(p => p.SKU === sku);
+    if (!produto) return;
+
+    const itemExistente = carrinho.find(item => item.SKU === sku);
+    
+    // Verifica se já atingiu o limite de 2 unidades
+    if (itemExistente && itemExistente.quantidade >= 2) {
+        mostrarFeedback('Limite máximo atingido (2 unidades por produto)', 'error');
+        return;
+    }
+    
+    if (itemExistente) {
+        itemExistente.quantidade += 1;
+    } else {
+        carrinho.push({
+            ...produto,
+            quantidade: 1
+        });
+    }
+
+    atualizarCarrinho();
+    mostrarFeedback('Item adicionado ao carrinho!');
+    
+    // Abre o carrinho se estiver fechado
+    if (!carrinhoAberto) {
+        toggleCarrinho();
+    }
+}
+
+// Atualize o event listener para fechar o carrinho apenas quando clicar fora
+document.addEventListener('click', (e) => {
+    if (carrinhoAberto && 
+        !e.target.closest('.carrinho-sidebar') && 
+        !e.target.closest('.carrinho-icon')) {
+        toggleCarrinho();
+    }
+});
 
 // Alternar carrinho (abrir/fechar)
 function toggleCarrinho() {
