@@ -1,4 +1,4 @@
-"[
+[
   {""SKU"":""ACE0001"",""DESCRICAO"":""Terço de Pescoço com Relicario"",""MATERIAL"":""Metal"",""MODELO"":""Colar"",""COR"":""Dourado"",""TAMANHO"":""30 cm"",""QTD"":8,""PRECO"":19,""IMAGES"":[""https://drive.google.com/thumbnail?id=1u2PuysuP2K6amDGqO2EUlc0uLtP-yr5-""],""CATEGORIA"":""ACESSORIOS""},
   {""SKU"":""ACE0002"",""DESCRICAO"":""Anel Pai Nosso"",""MATERIAL"":""Metal"",""MODELO"":""Anel"",""COR"":""Dourado"",""TAMANHO"":""Diversos"",""QTD"":8,""PRECO"":10,""IMAGES"":[""https://drive.google.com/thumbnail?id=1siV9BrKhiPsXJUi1LiKlx4nxd3StK5sG""],""CATEGORIA"":""ACESSORIOS""},
   {""SKU"":""ACE0003"",""DESCRICAO"":""Anel Pai Nosso"",""MATERIAL"":""Metal"",""MODELO"":""Anel"",""COR"":""Prata"",""TAMANHO"":""Diversos"",""QTD"":12,""PRECO"":10,""IMAGES"":[""https://drive.google.com/thumbnail?id=1siV9BrKhiPsXJUi1LiKlx4nxd3StK5sG""],""CATEGORIA"":""ACESSORIOS""},
@@ -111,4 +111,4 @@
   {""SKU"":""LIV0005"",""DESCRICAO"":""Minha vocação e o Amor - Santa Terezinha"",""MATERIAL"":""Papel"",""MODELO"":""Livreto"",""COR"":""Branco"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":9,""IMAGES"":[""https://drive.google.com/thumbnail?id=1030N_v1Yx5tGrrKjWVLArIgm0QWQYO5O""],""CATEGORIA"":""LIVROS""},
   {""SKU"":""ACE0001"",""DESCRICAO"":""TERÇO"",""MATERIAL"":""MADEIRA"",""MODELO"":""SANTOS"",""COR"":""IMBUIA"",""TAMANHO"":""30 CM"",""QTD"":5,""PRECO"":10,""IMAGES"":[],""CATEGORIA"":""TERÇOS""},
   {""SKU"":""QUE0001"",""DESCRICAO"":""CAMISETAS"",""MATERIAL"":""ALGODÃO"",""MODELO"":""DIVERSOS"",""COR"":""DIVEROSOS"",""TAMANHO"":""DIVERSOS"",""QTD"":10,""PRECO"":40,""IMAGES"":[],""CATEGORIA"":""QUEIMA ESTOQUE""}
-]"
+]
