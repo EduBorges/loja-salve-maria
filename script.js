@@ -1,5 +1,5 @@
 // Configurações
-const TELEFONE_LOJA = "5515981475186";
+const TELEFONE_LOJA = "5515997769053";
 
 // Estado da aplicação
 let produtos = [];
