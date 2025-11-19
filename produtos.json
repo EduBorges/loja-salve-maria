@@ -1,114 +1,562 @@
 [
-  {""SKU"":""ACE0001"",""DESCRICAO"":""Terço de Pescoço com Relicario"",""MATERIAL"":""Metal"",""MODELO"":""Colar"",""COR"":""Dourado"",""TAMANHO"":""30 cm"",""QTD"":8,""PRECO"":19,""IMAGES"":[""https://drive.google.com/thumbnail?id=1u2PuysuP2K6amDGqO2EUlc0uLtP-yr5-""],""CATEGORIA"":""ACESSORIOS""},
-  {""SKU"":""ACE0002"",""DESCRICAO"":""Anel Pai Nosso"",""MATERIAL"":""Metal"",""MODELO"":""Anel"",""COR"":""Dourado"",""TAMANHO"":""Diversos"",""QTD"":8,""PRECO"":10,""IMAGES"":[""https://drive.google.com/thumbnail?id=1siV9BrKhiPsXJUi1LiKlx4nxd3StK5sG""],""CATEGORIA"":""ACESSORIOS""},
-  {""SKU"":""ACE0003"",""DESCRICAO"":""Anel Pai Nosso"",""MATERIAL"":""Metal"",""MODELO"":""Anel"",""COR"":""Prata"",""TAMANHO"":""Diversos"",""QTD"":12,""PRECO"":10,""IMAGES"":[""https://drive.google.com/thumbnail?id=1siV9BrKhiPsXJUi1LiKlx4nxd3StK5sG""],""CATEGORIA"":""ACESSORIOS""},
-  {""SKU"":""ACE0004"",""DESCRICAO"":""Medalha NSª Graças"",""MATERIAL"":""Metal"",""MODELO"":""Pingente"",""COR"":""Ouro Velho"",""TAMANHO"":""02 cm"",""QTD"":15,""PRECO"":3,""IMAGES"":[""https://drive.google.com/thumbnail?id=1sLPZV3K38uFFe4yBfUR_lrG5coj9KLb_""],""CATEGORIA"":""ACESSORIOS""},
-  {""SKU"":""ACE0005"",""DESCRICAO"":""Medalha Cruz São Bento"",""MATERIAL"":""Metal"",""MODELO"":""Pingente"",""COR"":""Ouro Velho"",""TAMANHO"":""01 cm"",""QTD"":15,""PRECO"":3,""IMAGES"":[""https://drive.google.com/thumbnail?id=13BZlZbZApptWTjf5YfOvhyqVxufYD3MW""],""CATEGORIA"":""ACESSORIOS""},
-  {""SKU"":""ART0001"",""DESCRICAO"":""Vela Batismo - Torneada"",""MATERIAL"":""Parafina"",""MODELO"":""Vela"",""COR"":""Branco"",""TAMANHO"":""30 cm"",""QTD"":10,""PRECO"":6,""IMAGES"":[],""CATEGORIA"":""ARTESANATO""},
-  {""SKU"":""ART0002"",""DESCRICAO"":""Vela Devocinal  São Miguel"",""MATERIAL"":""Parafina"",""MODELO"":""Vela"",""COR"":""Branco"",""TAMANHO"":""08 cm"",""QTD"":1,""PRECO"":10,""IMAGES"":[],""CATEGORIA"":""ARTESANATO""},
-  {""SKU"":""ART0003"",""DESCRICAO"":""Vela Devocinal  Santa Terezinha"",""MATERIAL"":""Parafina"",""MODELO"":""Vela"",""COR"":""Branco"",""TAMANHO"":""08 cm"",""QTD"":2,""PRECO"":10,""IMAGES"":[],""CATEGORIA"":""ARTESANATO""},
-  {""SKU"":""ART0004"",""DESCRICAO"":""Vela Branca Nº8"",""MATERIAL"":""Parafina"",""MODELO"":""Vela"",""COR"":""Branco"",""TAMANHO"":""08 cm"",""QTD"":2,""PRECO"":8,""IMAGES"":[],""CATEGORIA"":""ARTESANATO""},
-  {""SKU"":""ART0005"",""DESCRICAO"":""Vela Branca Nº4"",""MATERIAL"":""Parafina"",""MODELO"":""Vela"",""COR"":""Branco"",""TAMANHO"":""04 cm"",""QTD"":6,""PRECO"":4,""IMAGES"":[],""CATEGORIA"":""ARTESANATO""},
-  {""SKU"":""ART0006"",""DESCRICAO"":""Vela Devocinal  São Miguel"",""MATERIAL"":""Parafina"",""MODELO"":""Vela"",""COR"":""Colorida"",""TAMANHO"":""08 cm"",""QTD"":5,""PRECO"":4,""IMAGES"":[],""CATEGORIA"":""ARTESANATO""},
-  {""SKU"":""ART0007"",""DESCRICAO"":""Vela Devocinal  NSª Graças"",""MATERIAL"":""Parafina"",""MODELO"":""Vela"",""COR"":""Branco"",""TAMANHO"":""13 cm"",""QTD"":1,""PRECO"":16,""IMAGES"":[],""CATEGORIA"":""ARTESANATO""},
-  {""SKU"":""ART0008"",""DESCRICAO"":""Vela Devocinal São Miguel"",""MATERIAL"":""Parafina"",""MODELO"":""Vela"",""COR"":""Branco"",""TAMANHO"":""13 cm"",""QTD"":1,""PRECO"":16,""IMAGES"":[],""CATEGORIA"":""ARTESANATO""},
-  {""SKU"":""IMG0001"",""DESCRICAO"":""Crucifixo Liso"",""MATERIAL"":""Metal"",""MODELO"":""Mesa"",""COR"":""Dourada"",""TAMANHO"":""20 cm"",""QTD"":2,""PRECO"":119,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0002"",""DESCRICAO"":""Crucifixo"",""MATERIAL"":""Metal"",""MODELO"":""Mesa"",""COR"":""Dourada"",""TAMANHO"":""20 cm"",""QTD"":3,""PRECO"":119,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0003"",""DESCRICAO"":""Crucifixo Liso"",""MATERIAL"":""Metal"",""MODELO"":""Parede"",""COR"":""Prata"",""TAMANHO"":""20 cm"",""QTD"":1,""PRECO"":89,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0004"",""DESCRICAO"":""Crucifixo"",""MATERIAL"":""Metal"",""MODELO"":""Parede"",""COR"":""Dourada"",""TAMANHO"":""20 cm"",""QTD"":1,""PRECO"":89,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0005"",""DESCRICAO"":""Crucifixo"",""MATERIAL"":""MDF"",""MODELO"":""Mesa|Parede"",""COR"":""Claro"",""TAMANHO"":""13 cm"",""QTD"":1,""PRECO"":35,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0006"",""DESCRICAO"":""Crucifixo"",""MATERIAL"":""MDF"",""MODELO"":""Mesa|Parede"",""COR"":""Claro"",""TAMANHO"":""24 cm"",""QTD"":1,""PRECO"":65,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0007"",""DESCRICAO"":""Crucifixo"",""MATERIAL"":""MDF"",""MODELO"":""Mesa|Parede"",""COR"":""Escuro"",""TAMANHO"":""24 cm"",""QTD"":1,""PRECO"":65,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0008"",""DESCRICAO"":""Crucifixo"",""MATERIAL"":""Resina"",""MODELO"":""Parede"",""COR"":""Colorido"",""TAMANHO"":""10 cm"",""QTD"":4,""PRECO"":32,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0009"",""DESCRICAO"":""Santa Rita Toten"",""MATERIAL"":""Madeira|Metal"",""MODELO"":""Mesa"",""COR"":""Escuro"",""TAMANHO"":""20 cm"",""QTD"":1,""PRECO"":70,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0010"",""DESCRICAO"":""São Miguel Quadro"",""MATERIAL"":""Metal"",""MODELO"":""Mesa"",""COR"":""Bronze"",""TAMANHO"":""05 cm"",""QTD"":2,""PRECO"":19,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0011"",""DESCRICAO"":""Medalha São Bento"",""MATERIAL"":""Metal"",""MODELO"":""Mesa"",""COR"":""Chumbo"",""TAMANHO"":""07 cm"",""QTD"":1,""PRECO"":19,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0012"",""DESCRICAO"":""São Jorge"",""MATERIAL"":""Madeira|Metal"",""MODELO"":""Mesa"",""COR"":""Prata"",""TAMANHO"":""6cm"",""QTD"":1,""PRECO"":22,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0013"",""DESCRICAO"":""Santa Edwiges"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":2,""PRECO"":65,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0014"",""DESCRICAO"":""São Roque"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":3,""PRECO"":43,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0015"",""DESCRICAO"":""Santa Ines"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":35,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0016"",""DESCRICAO"":""Santa Efigenia"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":39,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0017"",""DESCRICAO"":""Santa Veronica"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":34,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0018"",""DESCRICAO"":""Anjo D'Guarda Menino"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":35,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0019"",""DESCRICAO"":""Anjo D'Guarda Menina"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":35,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0020"",""DESCRICAO"":""São Braz"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":39,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0021"",""DESCRICAO"":""Santa Dulce"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":29,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0022"",""DESCRICAO"":""São Jorge"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":89,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0023"",""DESCRICAO"":""São Dimas"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":39,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0024"",""DESCRICAO"":""Sao Luiz e Santa Zelia"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":130,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0025"",""DESCRICAO"":""NSª Das Graças"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":2,""PRECO"":45,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0026"",""DESCRICAO"":""NSª Lourdes"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":2,""PRECO"":45,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0027"",""DESCRICAO"":""Jesus Misericordioso"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":45,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0028"",""DESCRICAO"":""NSª Do Desterro"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":55,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0029"",""DESCRICAO"":""Sagrada Familia (Sentada)"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":55,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0030"",""DESCRICAO"":""Sagrada Familia (Importada)"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":2,""PRECO"":89,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0031"",""DESCRICAO"":""Divino Pai Eterno"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":45,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0032"",""DESCRICAO"":""São Bento"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""20 cm"",""QTD"":2,""PRECO"":89,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0033"",""DESCRICAO"":""São Sebastião"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""20 cm"",""QTD"":1,""PRECO"":89,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0034"",""DESCRICAO"":""Santa Filomena"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""20 cm"",""QTD"":1,""PRECO"":89,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0035"",""DESCRICAO"":""Bom Jesus Pirapora"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""20 cm"",""QTD"":1,""PRECO"":79,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0036"",""DESCRICAO"":""NSª Desatadora dos Nós"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""20 cm"",""QTD"":1,""PRECO"":89,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0037"",""DESCRICAO"":""NSª Assunção"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""20 cm"",""QTD"":1,""PRECO"":89,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0038"",""DESCRICAO"":""Imaculado Coração de Maria"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""20 cm"",""QTD"":1,""PRECO"":89,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0039"",""DESCRICAO"":""NSª Lourdes"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""20 cm"",""QTD"":1,""PRECO"":95,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0040"",""DESCRICAO"":""NSª Perpetuo Socorro"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""20 cm"",""QTD"":1,""PRECO"":79,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0041"",""DESCRICAO"":""NSª Sorriso"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Branco"",""TAMANHO"":""20 cm"",""QTD"":1,""PRECO"":120,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0042"",""DESCRICAO"":""NSª Sorriso"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""20 cm"",""QTD"":1,""PRECO"":89,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0043"",""DESCRICAO"":""NSª Rainha da Paz"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""20 cm"",""QTD"":1,""PRECO"":135,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0044"",""DESCRICAO"":""NSª das Dores (Sentada)"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""20 cm"",""QTD"":1,""PRECO"":85,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0045"",""DESCRICAO"":""São Camilo Lelis"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""10 cm"",""QTD"":2,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0046"",""DESCRICAO"":""NSª Desatadora dos Nós"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""10 cm"",""QTD"":1,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0047"",""DESCRICAO"":""Santa Marta"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""10 cm"",""QTD"":1,""PRECO"":15,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0048"",""DESCRICAO"":""NSª Saude"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""10 cm"",""QTD"":1,""PRECO"":10,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0049"",""DESCRICAO"":""Sao Miguel (Baby)"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""10 cm"",""QTD"":1,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0050"",""DESCRICAO"":""NSª Aparecida"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""12 cm"",""QTD"":2,""PRECO"":59,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0051"",""DESCRICAO"":""NSª Guadalupe"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""18 cm"",""QTD"":3,""PRECO"":92,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0052"",""DESCRICAO"":""Carlo Acutis"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""18 cm"",""QTD"":2,""PRECO"":89,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0053"",""DESCRICAO"":""São José - Dormindo"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""12 cm"",""QTD"":4,""PRECO"":89,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0054"",""DESCRICAO"":""Triade Arcanjos"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":140,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0055"",""DESCRICAO"":""Sagrada Familia - Barroco"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":2,""PRECO"":135,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0056"",""DESCRICAO"":""São Bento"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":78,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0057"",""DESCRICAO"":""Santa Rita"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":85,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0058"",""DESCRICAO"":""NSª Aparecida"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":2,""PRECO"":78,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0059"",""DESCRICAO"":""Menino Jesus - Praga"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""13 cm"",""QTD"":1,""PRECO"":78,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0060"",""DESCRICAO"":""Menino Jesus - Almofada"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""10 cm"",""QTD"":1,""PRECO"":65,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0061"",""DESCRICAO"":""NSª Auxiliadora"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""10 cm"",""QTD"":1,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0062"",""DESCRICAO"":""NSª Guadalupe"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""8 cm"",""QTD"":6,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0063"",""DESCRICAO"":""Virgem Guadalupe"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""8 cm"",""QTD"":2,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0064"",""DESCRICAO"":""São Judas Tadeu"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""8 cm"",""QTD"":2,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0065"",""DESCRICAO"":""NSª Das Graças - Baby"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""8 cm"",""QTD"":2,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0066"",""DESCRICAO"":""Santa Dulce"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""8 cm"",""QTD"":1,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0067"",""DESCRICAO"":""Aparecida"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""8 cm"",""QTD"":2,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0068"",""DESCRICAO"":""Virgem Aparecida"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""8 cm"",""QTD"":2,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0069"",""DESCRICAO"":""São Lazaro"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""8 cm"",""QTD"":1,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0070"",""DESCRICAO"":""Santa Terezinha"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""8 cm"",""QTD"":3,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0071"",""DESCRICAO"":""São Rafael"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""8 cm"",""QTD"":3,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0072"",""DESCRICAO"":""São Gabriel"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""8 cm"",""QTD"":3,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0073"",""DESCRICAO"":""São José"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""8 cm"",""QTD"":3,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0074"",""DESCRICAO"":""São Francisco"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""8 cm"",""QTD"":1,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0075"",""DESCRICAO"":""NSª Fatima"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""8 cm"",""QTD"":1,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0076"",""DESCRICAO"":""Sagrada Familia"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""8 cm"",""QTD"":5,""PRECO"":29,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0077"",""DESCRICAO"":""NSª Carmo"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""8 cm"",""QTD"":1,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0078"",""DESCRICAO"":""São Dimas"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""8 cm"",""QTD"":1,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0079"",""DESCRICAO"":""Anjinho Branco"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""8 cm"",""QTD"":2,""PRECO"":25,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0080"",""DESCRICAO"":""Divino Espirito Santo - Pomba"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""9 cm"",""QTD"":1,""PRECO"":42,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0081"",""DESCRICAO"":""NSª Fatima"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""12 cm"",""QTD"":1,""PRECO"":43,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0082"",""DESCRICAO"":""São Miguel - Escudo Chumbo"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""10 cm"",""QTD"":3,""PRECO"":45,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0083"",""DESCRICAO"":""São Miguel - Escudo Prata"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""9 cm"",""QTD"":1,""PRECO"":45,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0084"",""DESCRICAO"":""São Miguel"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""30 cm"",""QTD"":1,""PRECO"":320,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0085"",""DESCRICAO"":""NSª Graças - Barroco"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""30 cm"",""QTD"":1,""PRECO"":320,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0086"",""DESCRICAO"":""NSª Aparecida"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""30 cm"",""QTD"":1,""PRECO"":220,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0087"",""DESCRICAO"":""NSª Fatima"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""30 cm"",""QTD"":1,""PRECO"":230,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0088"",""DESCRICAO"":""Divino Espirito Santo - Esplendor"",""MATERIAL"":""Resina"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":65,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0089"",""DESCRICAO"":""Sagrada Familia - Luminaria"",""MATERIAL"":""Plastico"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""11 cm"",""QTD"":1,""PRECO"":20,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0090"",""DESCRICAO"":""Sagrado Coração - Luminaria"",""MATERIAL"":""Plastico"",""MODELO"":""Estatueta"",""COR"":""Colorido"",""TAMANHO"":""11 cm"",""QTD"":1,""PRECO"":20,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0091"",""DESCRICAO"":""NSª Aparecida - Carro"",""MATERIAL"":""Metal"",""MODELO"":""Estatueta"",""COR"":""Prata"",""TAMANHO"":""05 cm"",""QTD"":3,""PRECO"":18,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""IMG0092"",""DESCRICAO"":""NSª Aparecida - Carro"",""MATERIAL"":""Metal"",""MODELO"":""Estatueta"",""COR"":""Dourada"",""TAMANHO"":""05 cm"",""QTD"":2,""PRECO"":18,""IMAGES"":[],""CATEGORIA"":""IMAGENS""},
-  {""SKU"":""LIV0001"",""DESCRICAO"":""Orações Selecionadas"",""MATERIAL"":""Papel"",""MODELO"":""Livreto"",""COR"":""Vermelho"",""TAMANHO"":""16 cm"",""QTD"":1,""PRECO"":36,""IMAGES"":[""https://drive.google.com/thumbnail?id=1NLMhexcSVOWYHdtFn4RC_iRa7qZEstgI""],""CATEGORIA"":""LIVROS""},
-  {""SKU"":""LIV0002"",""DESCRICAO"":""Biblia Ave Maria - Catequese"",""MATERIAL"":""Papel"",""MODELO"":""Livro"",""COR"":""Branco"",""TAMANHO"":""18 cm"",""QTD"":1,""PRECO"":52,""IMAGES"":[""https://drive.google.com/thumbnail?id=1XrvamD7REqzLM57bNmcAacALUMX9S8BW""],""CATEGORIA"":""LIVROS""},
-  {""SKU"":""LIV0003"",""DESCRICAO"":""Oficio da Imaculada Conceição"",""MATERIAL"":""Papel"",""MODELO"":""Livreto"",""COR"":""Colorido"",""TAMANHO"":""16 cm"",""QTD"":2,""PRECO"":14,""IMAGES"":[""https://drive.google.com/thumbnail?id=1JSb6K_mup7_jcc6wuEw2ILyngTqKpx9F""],""CATEGORIA"":""LIVROS""},
-  {""SKU"":""LIV0004"",""DESCRICAO"":""Manual do Cristão"",""MATERIAL"":""Papel"",""MODELO"":""Livreto"",""COR"":""Branco"",""TAMANHO"":""13 cm"",""QTD"":7,""PRECO"":9,""IMAGES"":[""https://drive.google.com/thumbnail?id=1IwhrHUABVWzdTbIfrwCk4a8mq7V3amvx""],""CATEGORIA"":""LIVROS""},
-  {""SKU"":""LIV0005"",""DESCRICAO"":""Minha vocação e o Amor - Santa Terezinha"",""MATERIAL"":""Papel"",""MODELO"":""Livreto"",""COR"":""Branco"",""TAMANHO"":""15 cm"",""QTD"":1,""PRECO"":9,""IMAGES"":[""https://drive.google.com/thumbnail?id=1030N_v1Yx5tGrrKjWVLArIgm0QWQYO5O""],""CATEGORIA"":""LIVROS""},
-  {""SKU"":""ACE0001"",""DESCRICAO"":""TERÇO"",""MATERIAL"":""MADEIRA"",""MODELO"":""SANTOS"",""COR"":""IMBUIA"",""TAMANHO"":""30 CM"",""QTD"":5,""PRECO"":10,""IMAGES"":[],""CATEGORIA"":""TERÇOS""},
-  {""SKU"":""QUE0001"",""DESCRICAO"":""CAMISETAS"",""MATERIAL"":""ALGODÃO"",""MODELO"":""DIVERSOS"",""COR"":""DIVEROSOS"",""TAMANHO"":""DIVERSOS"",""QTD"":10,""PRECO"":40,""IMAGES"":[],""CATEGORIA"":""QUEIMA ESTOQUE""}
+  {
+    "SKU": "1",
+    "DESCRICAO": "Pingente São Bento",
+    "MATERIAL": "metal",
+    "MODELO": "colar",
+    "COR": "outros",
+    "TAMANHO": "15cm",
+    "QTD": 10,
+    "PRECO": 15,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1SrnocKBLfeOIVRZciUPJrokXSVDszGau"
+    ],
+    "CATEGORIA": "ACESSORIOS"
+  },
+  {
+    "SKU": "5000",
+    "DESCRICAO": "CAIXA",
+    "MATERIAL": "MDF",
+    "MODELO": "Berloque",
+    "COR": "colorido",
+    "TAMANHO": "25cm",
+    "QTD": 1,
+    "PRECO": 50,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1Tes4r0XjAGAa6TiGOQYbfuCtwKj1tRZk"
+    ],
+    "CATEGORIA": "ARTESANATO"
+  },
+  {
+    "SKU": "10000",
+    "DESCRICAO": "CAMISETA",
+    "MATERIAL": "Poliester",
+    "MODELO": "camiseta",
+    "COR": "vermelha",
+    "TAMANHO": "media",
+    "QTD": 1,
+    "PRECO": 40,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1mmjo3nkWUiqgYBU5KB_uJYETHsvFtTmH"
+    ],
+    "CATEGORIA": "CAMISETA"
+  },
+  {
+    "SKU": "15000",
+    "DESCRICAO": "São Miguel",
+    "MATERIAL": "Resina",
+    "MODELO": "Anjo",
+    "COR": "Colorido",
+    "TAMANHO": "35 cm",
+    "QTD": 1,
+    "PRECO": 350,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1BFr71pdmjT8xIBezLUzOpaJu8EoOX0RH"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15001",
+    "DESCRICAO": "São Bento",
+    "MATERIAL": "Resina",
+    "MODELO": "Santo",
+    "COR": "Colorido",
+    "TAMANHO": "20cm",
+    "QTD": 2,
+    "PRECO": 89,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=13R_ZMfRXeDlYMd_o-TCITAjeXQOBs_IT"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15002",
+    "DESCRICAO": "NSª Perpétuo  Socorro",
+    "MATERIAL": "Resina",
+    "MODELO": "Santo",
+    "COR": "Colorido",
+    "TAMANHO": "20cm",
+    "QTD": 1,
+    "PRECO": 79,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=16GNhkhscAcJQ_nzc_Dr5cj3YMN3dBjaS"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15003",
+    "DESCRICAO": "Sagrada Familia",
+    "MATERIAL": "resina",
+    "MODELO": "Santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 2,
+    "PRECO": 125,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1QH_jb9qu0XXjiU651JQ4pxz2fdpL-ear"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15004",
+    "DESCRICAO": "NSª Lurdes",
+    "MATERIAL": "resina",
+    "MODELO": "Santo",
+    "COR": "Colorido",
+    "TAMANHO": "20cm",
+    "QTD": 1,
+    "PRECO": 95,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1FYfMtAigar3ZCIgQQJPLLKAvWhzbB2Ni"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15005",
+    "DESCRICAO": "NSª Assunção",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "20cm",
+    "QTD": 1,
+    "PRECO": 89,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1E9u5O3MTF938UJvdN42QNTD0GdP5PIhy"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15006",
+    "DESCRICAO": "NSª das Dores",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "20cm",
+    "QTD": 1,
+    "PRECO": 85,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1LyO3LvcGc6O5vNoQpqxPghg8HkipIV_y"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15007",
+    "DESCRICAO": "NSª das Graças",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 2,
+    "PRECO": 65,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1sTb2p5KrgN3FvRRjVx0_YN77MN3UIr9R"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15008",
+    "DESCRICAO": "Santa Edwiges",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 2,
+    "PRECO": 65,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1vqPTqQIgQed7FP8XOVV9NcZo1gP_oWsD"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15009",
+    "DESCRICAO": "São Roque",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 4,
+    "PRECO": 43,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1aG9-K5xwWLkPa9nH2VxpqrFSTZ98vDRk"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15010",
+    "DESCRICAO": "Jesus Bom Pastor",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 45,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1YoNnFepYpds_T-SQF2xI-enUQNo8rkDz"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15011",
+    "DESCRICAO": "Santa Inês",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 35,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=13RGlFP9_SJX3O_hIBVMF86idI0ULs8G7"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15012",
+    "DESCRICAO": "NSª de Salette",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 65,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1mHJ9zv4ggY5BjMdHX3jXXxwSKFo-JiDx"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15013",
+    "DESCRICAO": "Santa Verônica",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 34,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1CDSV12XsSYK2l0gHtwJ3Z4vCFV3ZX53D"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15014",
+    "DESCRICAO": "Santa Efigenia",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 39,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1_quibTdeOEtMtaQIX0ix1xFc17a_KLLg"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15015",
+    "DESCRICAO": "Sagrada Familia",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 78,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=17LNFiU-CYX35woI1yJHqn8iRPgG8oOAR"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15016",
+    "DESCRICAO": "Sagrada Familia",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "20cm",
+    "QTD": 1,
+    "PRECO": 89,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1ipR2QUjzGTEhWM_y-bvznlmyD5C7n6no"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15017",
+    "DESCRICAO": "Santa Rita",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 69,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=14GhgW0fwawChv8crypLyjge5_ZYMknzL"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15018",
+    "DESCRICAO": "São Luis e Santa Zélia",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 130,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1sa1g42xEAlOpWMNq0mLf97HV9QO_Ohdq"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15019",
+    "DESCRICAO": "NSª do Desterro",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 89,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1kuRH5cRxhFi1kZClDAlimQ3ZU-S4gv6X"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15020",
+    "DESCRICAO": "São Jorge",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 89,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1zzRiwodE24eiNlyxZn-WrL0VPi-h88EW"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15021",
+    "DESCRICAO": "Anjo da Guarda (Rosa)",
+    "MATERIAL": "resina",
+    "MODELO": "Anjo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 68,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=155xtcL1HHQx9GcRLPHaCRutlr0YFOzvp"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15022",
+    "DESCRICAO": "Anjo da  Guarda (Azul)",
+    "MATERIAL": "resina",
+    "MODELO": "Anjo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 68,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1MNli0JBtY0DFZTHLCwBUmYc7gln5T5wF"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15023",
+    "DESCRICAO": "NSª Desatadora do Nós",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "20cm",
+    "QTD": 1,
+    "PRECO": 89,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1x4OICdWjKYFMGIHuBAsNoIBFNgt-PLE6"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15024",
+    "DESCRICAO": "São Brás",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 39,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1HxzI4OgM5jfQrKpa787coJuCQz5Pt4Et"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15025",
+    "DESCRICAO": "São Dimas",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 69,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=15EVUflI_eLhF2GHzvrOMnho2u7qjBbL3"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15026",
+    "DESCRICAO": "Santa Filomena",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "20cm",
+    "QTD": 1,
+    "PRECO": 89,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=11jhNuQqoxGxACalxzMR_HZQsFeABWf65"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15027",
+    "DESCRICAO": "Bom Jesus",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "20cm",
+    "QTD": 1,
+    "PRECO": 79,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1Fj39zyhYCM0ZG11tUmSu4rr2d88OSLFc"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15028",
+    "DESCRICAO": "Santa Dulce",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 29,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=19EtGBD2F48vxQoRVJTpiBfObWWIMM_CO"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15029",
+    "DESCRICAO": "São Sebastian",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "20cm",
+    "QTD": 1,
+    "PRECO": 89,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1-j3vjHZ6H7mf-cFbio8wYmqFbHwQBpq3"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15030",
+    "DESCRICAO": "NSª Desatadora do Nós",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 42,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1p6bcj91hvvsCJ1nEPibqK-lYJQ1WWhsm"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15031",
+    "DESCRICAO": "Santo Antonio",
+    "MATERIAL": "resina",
+    "MODELO": "santo",
+    "COR": "Colorido",
+    "TAMANHO": "30cm",
+    "QTD": 1,
+    "PRECO": 79,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1cTQHWF9Pq1WMmU2TH2GUDviaWNUSki-m"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15032",
+    "DESCRICAO": "Anjo Gabriel (Baby)",
+    "MATERIAL": "resina",
+    "MODELO": "Anjo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 65,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1p8vNbXRdN67HEO83PSNCID9lQVXpH_n4"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15033",
+    "DESCRICAO": "São Francisco (Baby)",
+    "MATERIAL": "resina",
+    "MODELO": "Santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 65,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1PcqcyP9bLBP_SHPpR8ZR8W4hId8ERKEa"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "15034",
+    "DESCRICAO": "São Bento (Baby)",
+    "MATERIAL": "resina",
+    "MODELO": "Santo",
+    "COR": "Colorido",
+    "TAMANHO": "15cm",
+    "QTD": 1,
+    "PRECO": 42,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1nntIcr89e7rxw5cMOidmN8yDCnFHAU0F"
+    ],
+    "CATEGORIA": "IMAGENS"
+  },
+  {
+    "SKU": "20000",
+    "DESCRICAO": "Livro Catolico",
+    "MATERIAL": "Papel",
+    "MODELO": "Devocionarios",
+    "COR": "Preto e Branco",
+    "TAMANHO": "Bolso",
+    "QTD": 150,
+    "PRECO": 12,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=14zkCxUnEuVNUc2smD4le_0jbK-p0KgfC"
+    ],
+    "CATEGORIA": "LIVROS"
+  },
+  {
+    "SKU": "25000",
+    "DESCRICAO": "Terço",
+    "MATERIAL": "Madeira",
+    "MODELO": "Tradicional",
+    "COR": "Mogno",
+    "TAMANHO": "20cm",
+    "QTD": 10,
+    "PRECO": 20,
+    "IMAGES": [
+      "https://drive.google.com/thumbnail?id=1amSEnAnfyATnijCpXCPIB6l6AzK_iGHb"
+    ],
+    "CATEGORIA": "TERÇOS"
+  }
 ]
