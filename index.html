@@ -3,89 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Loja Salve Maria Imaculada</title>
+    <title>Loja Salve Maria Imaculada - Artigos Católicos</title>
+    <meta name="description" content="Loja Salve Maria Imaculada - Artigos católicos para inspirar sua fé. Imagens, terços e livros religiosos.">
+    <meta name="keywords" content="artigos católicos, imagens santos, terços, livros católicos, São Bento, Nossa Senhora">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="https://drive.google.com/thumbnail?id=1gnlqSgENJVta-a3T6fyVOOiKNAMr7JT9" alt="Logo Salve Maria Imaculada" class="logo">
-        </div>
-        <h1> SALVE MARIA IMACULADA</h1>
-        <div class="carrinho-flutuante">
-            <div class="carrinho-icon" id="carrinho-icon">
-                🛒
-                <span class="carrinho-count" id="carrinho-count">0</span>
-            </div>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="pesquisa-container">
-            <button class="pesquisa-btn" id="pesquisa-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-            </button>
-            <input type="text" class="pesquisa-input" id="pesquisa-input" placeholder="Pesquisar produtos">
-            <button class="limpar-pesquisa" id="limpar-pesquisa" title="Limpar pesquisa">✕</button>
-        </div>
-
-        <div class="menu-lateral">
-            <div class="categorias" id="categorias-container">
-                <button class="categoria-btn active" data-categoria="todos">Todos</button>
-            </div>
-        </div>
-
-        <div class="produtos-container">
-            <div class="produtos-grid" id="produtos-container">
-                <div class="produto-card">
-                    <div class="produto-imagem-container">
-                        <div class="placeholder-imagem">Carregando...</div>
+    <header class="top-banner">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-container">
+                        <img src="https://drive.google.com/thumbnail?id=1IhtjPppYwWhvqiq6nC8uq-384T2T1mXm" alt="Logo Salve Maria Imaculada" class="logo">
                     </div>
-                    <div class="produto-info">
-                        <div class="produto-titulo">Carregando produtos...</div>
-                        <div class="produto-atributos">
-                            <p>Aguarde enquanto carregamos nosso catálogo</p>
+                    <div class="brand-info">
+                        <h1 class="brand-title">Salve Maria Imaculada</h1>
+                        <h2 class="brand-subtitle">Artigos Católicos</h2>
+                        <p class="brand-tagline">A fé nos faz caminhar!</p>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(15) 99776-9053</span>
                         </div>
-                        <div class="produto-preco">R$ 0,00</div>
-                        <button class="add-carrinho" disabled>Carregando</button>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>loja.salvemariaimaculada@gmail.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="carrinho-flutuante">
+                        <div class="carrinho-icon" id="carrinho-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="carrinho-count" id="carrinho-count">0</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </header>
+
+    <div class="container main-container">
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="pesquisa-container">
+                    <input type="text" class="pesquisa-input" id="pesquisa-input" placeholder="Pesquisar produtos...">
+                    <button class="limpar-pesquisa" id="limpar-pesquisa" title="Limpar pesquisa">✕</button>
+                </div>
+                
+                <h2>Categorias</h2>
+                <div class="categorias" id="categorias-container">
+                    <button class="categoria-btn active" data-categoria="todos">
+                        <i class="fas fa-th-large"></i> Todos
+                    </button>
+                </div>
+            </aside>
+
+            <main class="content">
+                <div class="info-banner">
+                    <h2>Bem-vindo à nossa loja!</h2>
+                    <p>Artigos Católicos para inspirar a sua fé.</p>
+                </div>
+
+                <h2 class="section-title">Nossos Produtos</h2>
+                
+                <div class="produtos-container" id="produtos-container">
+                    <p style="text-align:center; width:100%;">Carregando catálogo...</p>
+                </div>
+
+                <div class="about-social">
+                    <div class="about">
+                        <h2>Sobre Nossa Loja</h2>
+                        <p>A Loja Salve Maria Imaculada oferece artigos católicos que unem tradição e espiritualidade. Cada produto é escolhido para inspirar fé e devoção.</p>
+                    </div>
+                    <div class="social-media">
+                        <h2>Redes Sociais</h2>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i> Facebook</a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+                            <a href="https://wa.me/5515997769053" class="social-link"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
     </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Pagamento</h3>
+                    <p>Cartão e PIX</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>(15) 99776-9053</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Salve Maria Imaculada</p>
+            </div>
+        </div>
+    </footer>
 
     <div class="carrinho-sidebar" id="carrinho-sidebar">
         <div class="carrinho-header">
             <h2>Seu Carrinho</h2>
         </div>
-        
-        <div class="carrinho-content" id="carrinho-content">
-            <div class="carrinho-vazio">Seu carrinho está vazio</div>
-        </div>
-        
+        <div class="carrinho-content" id="carrinho-content"></div>
         <div class="carrinho-footer">
             <div class="carrinho-total">
                 <span>Total:</span>
                 <span>R$ <span id="carrinho-total">0,00</span></span>
             </div>
-            <button class="whatsapp-btn" id="finalizar-pedido">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                </svg>
-                Enviar
-            </button>
+            <div class="carrinho-botoes">
+                <button class="limpar-carrinho-btn" id="limpar-carrinho">
+                    <i class="fas fa-trash"></i> Limpar
+                </button>
+                <button class="whatsapp-btn" id="finalizar-pedido">
+                    <i class="fab fa-whatsapp"></i> Finalizar
+                </button>
+            </div>
         </div>
     </div>
 
     <div class="modal-overlay" id="modal-overlay">
         <div class="modal-container">
-            <h3>Informações para o Pedido</h3>
+            <h3>Finalizar Pedido</h3>
             <form id="dados-cliente">
                 <div class="form-group">
-                    <label for="nome-cliente">Seu Nome Completo:</label>
+                    <label for="nome-cliente">Seu Nome:</label>
                     <input type="text" id="nome-cliente" required>
                 </div>
                 <div class="form-group">
@@ -94,11 +146,11 @@
                 </div>
                 <div class="form-group">
                     <label for="observacoes">Observações:</label>
-                    <textarea id="observacoes" rows="3" placeholder="Alguma informação adicional sobre seu pedido..."></textarea>
+                    <textarea id="observacoes" rows="3"></textarea>
                 </div>
                 <div class="modal-buttons">
                     <button type="button" class="btn-cancelar" id="cancelar-pedido">Cancelar</button>
-                    <button type="submit" class="btn-confirmar">Enviar Pedido</button>
+                    <button type="submit" class="btn-confirmar">Enviar no WhatsApp</button>
                 </div>
             </form>
         </div>
@@ -106,6 +158,11 @@
 
     <div class="feedback" id="feedback"></div>
 
-    <script src="script.js" defer></script>
+    <div id="zoom-modal" class="zoom-modal">
+        <span class="zoom-close">&times;</span>
+        <img class="zoom-modal-content" id="img-zoom-destaque">
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
