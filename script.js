@@ -147,6 +147,60 @@ const zoomModal = document.getElementById('zoom-modal');
 const zoomImg = document.getElementById('img-zoom-destaque');
 const zoomClose = document.querySelector('.zoom-close');
 
+// --- GERENCIAMENTO DE HISTÓRICO (NAVEGAÇÃO MOBILE) ---
+
+// Função auxiliar para atualizar histórico se não estiver na "home"
+function atualizarHistorico(estado) {
+    // Se estamos na home e vamos para algo interno, adicionamos um estado
+    if (!history.state || history.state.page === 'home') {
+        history.pushState({ page: 'inner' }, '');
+    } 
+    // Se já estamos em algo interno, apenas substituímos para não criar pilha infinita
+    else {
+        history.replaceState({ page: 'inner' }, '');
+    }
+}
+
+// Inicializa o histórico como 'home'
+if (!history.state) {
+    history.replaceState({ page: 'home' }, '');
+}
+
+// Evento POPSTATE (Quando clica no botão voltar)
+window.addEventListener('popstate', (event) => {
+    // Se o usuário clicou em voltar, precisamos fechar tudo e resetar para a home
+    
+    // Fecha Carrinho
+    if (carrinhoAberto) {
+        toggleCarrinho(false); // false indica para não mexer no histórico novamente
+    }
+    
+    // Fecha Zoom
+    if (zoomModal.style.display === "block") {
+        zoomModal.style.display = "none";
+    }
+    
+    // Fecha Modal de Pedido
+    if (modalOverlay.style.display === "flex") {
+        modalOverlay.style.display = "none";
+        document.body.style.overflow = '';
+    }
+    
+    // Reseta Categoria e Pesquisa se estiverem ativos
+    if (categoriaAtiva !== 'todos' || termoPesquisa !== '') {
+        document.querySelectorAll('.categoria-btn').forEach(b => b.classList.remove('active'));
+        const todosBtn = document.querySelector('.categoria-btn[data-categoria="todos"]');
+        if(todosBtn) todosBtn.classList.add('active');
+        
+        categoriaAtiva = 'todos';
+        termoPesquisa = '';
+        pesquisaInput.value = '';
+        limparPesquisaBtn.style.display = 'none';
+        renderizarProdutos();
+    }
+});
+
+
 // --- FUNÇÕES PRINCIPAIS ---
 
 function carregarProdutos() {
@@ -188,6 +242,9 @@ function gerarBotoesCategoria() {
         `;
         
         btn.addEventListener('click', () => {
+            // Atualiza histórico ao navegar
+            atualizarHistorico('categoria');
+
             document.querySelectorAll('.categoria-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             categoriaAtiva = categoria;
@@ -201,6 +258,11 @@ function gerarBotoesCategoria() {
     });
 
     todosBtn.addEventListener('click', () => {
+        // Voltar para "todos" é tecnicamente voltar para home, mas se o usuário clicar, resetamos
+        if (history.state && history.state.page === 'inner') {
+             history.back(); // Simula o botão voltar
+             return;
+        }
         document.querySelectorAll('.categoria-btn').forEach(b => b.classList.remove('active'));
         todosBtn.classList.add('active');
         categoriaAtiva = 'todos';
@@ -211,6 +273,12 @@ function gerarBotoesCategoria() {
 function pesquisarProdutos() {
     termoPesquisa = pesquisaInput.value.trim().toLowerCase();
     limparPesquisaBtn.style.display = termoPesquisa ? 'flex' : 'none';
+    
+    // Se começou a pesquisar, marca no histórico
+    if (termoPesquisa.length > 0) {
+        atualizarHistorico('pesquisa');
+    }
+    
     renderizarProdutos();
 }
 
@@ -288,7 +356,7 @@ function adicionarAoCarrinho(sku) {
     mostrarFeedback('Adicionado ao carrinho!');
     
     if (!carrinhoAberto) {
-        toggleCarrinho();
+        toggleCarrinho(true); // true indica que foi ação do usuário (abrir)
     }
 }
 
@@ -365,12 +433,21 @@ function atualizarCarrinho() {
     carrinhoTotal.textContent = total.toFixed(2).replace('.', ',');
 }
 
-function toggleCarrinho() {
+function toggleCarrinho(fromUserAction = true) {
+    // Se fromUserAction for true, significa que o usuário clicou para abrir/fechar
+    // Se for false, foi o botão voltar do navegador (não mexemos no histórico)
+    
     carrinhoAberto = !carrinhoAberto;
+    
     if(carrinhoAberto) {
         carrinhoSidebar.classList.add('open');
+        if (fromUserAction) atualizarHistorico('carrinho');
     } else {
         carrinhoSidebar.classList.remove('open');
+        // Se fechou clicando no ícone ou fora, e o histórico diz que está "inner", voltamos o histórico
+        if (fromUserAction && history.state && history.state.page === 'inner') {
+            history.back();
+        }
     }
 }
 
@@ -382,7 +459,8 @@ function finalizarPedidoWhatsApp() {
         return;
     }
     modalOverlay.style.display = 'flex';
-    document.body.style.overflow = 'hidden'; 
+    document.body.style.overflow = 'hidden';
+    atualizarHistorico('checkout');
 }
 
 formDadosCliente.addEventListener('submit', function(e) {
@@ -430,8 +508,13 @@ formDadosCliente.addEventListener('submit', function(e) {
     const linkZap = `https://wa.me/${TELEFONE_LOJA}?text=${encodeURIComponent(mensagem)}`;
     window.open(linkZap, '_blank');
     
+    // Fecha modal
     modalOverlay.style.display = 'none';
     document.body.style.overflow = '';
+    
+    // Volta histórico se necessário
+    if (history.state && history.state.page === 'inner') history.back();
+
     carrinho = [];
     atualizarCarrinho();
     formDadosCliente.reset();
@@ -448,7 +531,7 @@ limparPesquisaBtn.addEventListener('click', () => {
 
 carrinhoIcon.addEventListener('click', (e) => {
     e.stopPropagation();
-    toggleCarrinho();
+    toggleCarrinho(true);
 });
 
 finalizarPedidoBtn.addEventListener('click', finalizarPedidoWhatsApp);
@@ -481,32 +564,37 @@ produtosContainer.addEventListener('click', (e) => {
         const sku = e.target.dataset.sku;
         adicionarAoCarrinho(sku);
     }
-    // Zoom (Novo)
+    // Zoom
     if (e.target.classList.contains('produto-imagem')) {
         const src = e.target.src;
         zoomModal.style.display = "block";
         zoomImg.src = src;
+        atualizarHistorico('zoom');
     }
 });
 
 // Fechar Zoom
 zoomClose.addEventListener('click', () => {
     zoomModal.style.display = "none";
+    if (history.state && history.state.page === 'inner') history.back();
 });
 zoomModal.addEventListener('click', (e) => {
     if (e.target === zoomModal) {
         zoomModal.style.display = "none";
+        if (history.state && history.state.page === 'inner') history.back();
     }
 });
 
 btnCancelar.addEventListener('click', () => {
     modalOverlay.style.display = 'none';
     document.body.style.overflow = '';
+    if (history.state && history.state.page === 'inner') history.back();
 });
 modalOverlay.addEventListener('click', (e) => {
     if (e.target === modalOverlay) {
         modalOverlay.style.display = 'none';
         document.body.style.overflow = '';
+        if (history.state && history.state.page === 'inner') history.back();
     }
 });
 
@@ -528,7 +616,7 @@ function mostrarFeedback(texto, tipo = 'success') {
 document.addEventListener('click', (e) => {
     const target = e.target;
     if (carrinhoAberto && !carrinhoSidebar.contains(target) && !carrinhoIcon.contains(target)) {
-        toggleCarrinho();
+        toggleCarrinho(true);
     }
 });
 
