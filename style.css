@@ -382,7 +382,6 @@ body {
     object-fit: contain;
     transition: transform 0.5s ease;
     padding: 5px;
-    /* ATUALIZAÇÃO PARA ZOOM */
     cursor: zoom-in;
 }
 
@@ -859,6 +858,7 @@ footer {
 @media (max-width: 576px) {
     #produtos-container { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
     .carrinho-sidebar { width: 100%; }
+    .zoom-modal-content { width: 100%; }
     
     .logo-section {
         flex-direction: column;
@@ -901,13 +901,11 @@ footer {
     }
 }
 
-/* =================================
-   ESTILOS DO MODAL DE ZOOM (NOVO)
-   ================================= */
+/* ZOOM MODAL */
 .zoom-modal {
     display: none; 
     position: fixed; 
-    z-index: 2000; /* Acima de tudo */
+    z-index: 2000; 
     padding-top: 50px; 
     left: 0;
     top: 0;
@@ -954,7 +952,6 @@ footer {
     cursor: pointer;
 }
 
-/* Responsividade para o zoom */
 @media only screen and (max-width: 700px){
     .zoom-modal-content {
         width: 95%;
