@@ -858,7 +858,6 @@ footer {
 @media (max-width: 576px) {
     #produtos-container { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
     .carrinho-sidebar { width: 100%; }
-    .zoom-modal-content { width: 100%; }
     
     .logo-section {
         flex-direction: column;
