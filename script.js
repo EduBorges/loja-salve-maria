@@ -110,13 +110,13 @@ const produtosData = [
   {"SKU":"LIV0003","DESCRICAO":"Oficio da Imaculada Conceição","MATERIAL":"Papel","MODELO":"Livreto","COR":"Colorido","TAMANHO":"16 cm","QTD":2,"PRECO":14,"IMAGES":["https://drive.google.com/thumbnail?id=1JSb6K_mup7_jcc6wuEw2ILyngTqKpx9F"],"CATEGORIA":"LIVROS"},
   {"SKU":"LIV0004","DESCRICAO":"Manual do Cristão","MATERIAL":"Papel","MODELO":"Livreto","COR":"Branco","TAMANHO":"13 cm","QTD":7,"PRECO":9,"IMAGES":["https://drive.google.com/thumbnail?id=1IwhrHUABVWzdTbIfrwCk4a8mq7V3amvx"],"CATEGORIA":"LIVROS"},
   {"SKU":"LIV0005","DESCRICAO":"Minha vocação e o Amor - Santa Terezinha","MATERIAL":"Papel","MODELO":"Livreto","COR":"Branco","TAMANHO":"15 cm","QTD":1,"PRECO":9,"IMAGES":["https://drive.google.com/thumbnail?id=1030N_v1Yx5tGrrKjWVLArIgm0QWQYO5O"],"CATEGORIA":"LIVROS"},
-  {"SKU":"ACE0001","DESCRICAO":"TERÇO","MATERIAL":"MADEIRA","MODELO":"SANTOS","COR":"IMBUIA","TAMANHO":"30 CM","QTD":5,"PRECO":10,"IMAGES":[],"CATEGORIA":"TERÇOS"},
+  {"SKU":"TER0001","DESCRICAO":"TERÇO","MATERIAL":"MADEIRA","MODELO":"SANTOS","COR":"IMBUIA","TAMANHO":"30 CM","QTD":5,"PRECO":10,"IMAGES":[],"CATEGORIA":"TERÇOS"},
   {"SKU":"QUE0001","DESCRICAO":"CAMISETAS","MATERIAL":"ALGODÃO","MODELO":"DIVERSOS","COR":"DIVEROSOS","TAMANHO":"DIVERSOS","QTD":10,"PRECO":40,"IMAGES":[],"CATEGORIA":"QUEIMA ESTOQUE"}
 ];
- 
+
 // --- CONFIGURAÇÕES ---
 const TELEFONE_LOJA = "5515997769053";
-const QUANTIDADE_MAXIMA_POR_ITEM = 7;
+const QUANTIDADE_MAXIMA_POR_ITEM = 3;
 
 // --- ESTADO DA APLICAÇÃO ---
 let produtos = [];
@@ -167,6 +167,7 @@ window.addEventListener('popstate', (event) => {
     // 1. Prioridade: Fechar Zoom
     if (zoomModal.style.display === "block") {
         zoomModal.style.display = "none";
+        document.body.style.overflow = '';
         return; 
     }
     
@@ -198,18 +199,19 @@ window.addEventListener('popstate', (event) => {
     }
 });
 
-
 // --- FUNÇÕES PRINCIPAIS ---
 
 function carregarProdutos() {
     try {
         produtos = produtosData;
+        console.log(`Carregados ${produtos.length} produtos`);
         gerarBotoesCategoria();
         renderizarProdutos();
         atualizarCarrinho();
         console.log("Loja carregada com sucesso!");
     } catch (e) {
         console.error("Erro ao carregar loja:", e);
+        mostrarFeedback('Erro ao carregar produtos', 'error');
     }
 }
 
@@ -237,6 +239,7 @@ function gerarBotoesCategoria() {
     categoriasContainer.appendChild(todosBtn);
     
     const categorias = [...new Set(produtos.map(p => p.CATEGORIA))];
+    console.log('Categorias encontradas:', categorias);
     
     const iconesCategorias = {
         'ACESSORIOS': 'fas fa-gem',
@@ -301,6 +304,8 @@ function renderizarProdutos() {
     else if (categoriaAtiva !== 'todos') {
         produtosFiltrados = produtos.filter(p => p.CATEGORIA === categoriaAtiva);
     }
+    
+    console.log(`Exibindo ${produtosFiltrados.length} produtos`);
     
     if (produtosFiltrados.length === 0) {
         produtosContainer.innerHTML = `<p style="text-align: center; grid-column: 1 / -1; padding: 20px;">Nenhum produto encontrado.</p>`;
@@ -397,7 +402,11 @@ function atualizarQuantidade(sku, novaQuantidade) {
 }
 
 function atualizarCarrinho() {
-    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    try {
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    } catch (e) {
+        console.error('Erro ao salvar carrinho:', e);
+    }
 
     const totalItens = carrinho.reduce((total, item) => total + item.quantidade, 0);
     carrinhoCount.textContent = totalItens;
@@ -419,7 +428,7 @@ function atualizarCarrinho() {
         carrinhoItem.className = 'carrinho-item';
         carrinhoItem.innerHTML = `
             <div class="carrinho-item-img-container">
-                <img class="carrinho-item-img" src="${imgUrl}" alt="${item.DESCRICAO}">
+                <img class="carrinho-item-img" src="${imgUrl}" alt="${item.DESCRICAO}" loading="lazy">
             </div>
             <div class="carrinho-item-detalhes">
                 <div class="carrinho-item-titulo">${item.DESCRICAO}</div>
@@ -443,9 +452,11 @@ function toggleCarrinho(fromUserAction = true) {
     
     if(carrinhoAberto) {
         carrinhoSidebar.classList.add('open');
+        document.body.style.overflow = 'hidden'; // Previne scroll do body
         if (fromUserAction) atualizarHistorico('carrinho');
     } else {
         carrinhoSidebar.classList.remove('open');
+        document.body.style.overflow = ''; // Restaura scroll
         if (fromUserAction && history.state && history.state.page === 'inner') {
             history.back();
         }
@@ -477,7 +488,12 @@ formDadosCliente.addEventListener('submit', function(e) {
     const observacoes = document.getElementById('observacoes').value.trim();
     
     if (!nomeCliente || !telefoneCliente) {
-        mostrarFeedback('Preencha os campos.', 'error');
+        mostrarFeedback('Preencha os campos obrigatórios.', 'error');
+        return;
+    }
+    
+    if (telefoneCliente.length < 10) {
+        mostrarFeedback('WhatsApp inválido.', 'error');
         return;
     }
     
@@ -507,10 +523,10 @@ formDadosCliente.addEventListener('submit', function(e) {
     mensagem += `===========================\n`;
     mensagem += `TOTAL: R$ ${totalFormatado}\n`;
     mensagem += `===========================\n`;
-    mensagem += `OBS: ${observacoes}\n\n\n`;
+    mensagem += `OBS: ${observacoes || 'Nenhuma'}\n\n\n`;
     
     mensagem += `===========================\n`;
-    mensagem += `“Aguardo a confirmação de \nestoque e prazo de entrega.”`;
+    mensagem += `"Aguardo a confirmação de \nestoque e prazo de entrega."`;
     
     // 2. Limpa
     carrinho = [];
@@ -530,7 +546,13 @@ formDadosCliente.addEventListener('submit', function(e) {
     }
 
     const linkZap = `https://wa.me/${TELEFONE_LOJA}?text=${encodeURIComponent(mensagem)}`;
-    window.open(linkZap, '_blank');
+    
+    // Tenta abrir em nova aba, se não conseguir abre na mesma
+    try {
+        window.open(linkZap, '_blank');
+    } catch (e) {
+        window.location.href = linkZap;
+    }
     
     mostrarFeedback('Pedido enviado! Verifique seu WhatsApp.');
 });
@@ -543,8 +565,10 @@ limparPesquisaBtn.addEventListener('click', () => {
     pesquisarProdutos();
 });
 
+// Melhor tratamento de toque para mobile
 carrinhoIcon.addEventListener('click', (e) => {
     e.stopPropagation();
+    e.preventDefault();
     toggleCarrinho(true);
 });
 
@@ -580,17 +604,21 @@ produtosContainer.addEventListener('click', (e) => {
         const src = e.target.src;
         zoomModal.style.display = "block";
         zoomImg.src = src;
+        document.body.style.overflow = 'hidden';
         atualizarHistorico('zoom');
     }
 });
 
 zoomClose.addEventListener('click', () => {
     zoomModal.style.display = "none";
+    document.body.style.overflow = '';
     if (history.state && history.state.page === 'inner') history.back();
 });
+
 zoomModal.addEventListener('click', (e) => {
     if (e.target === zoomModal) {
         zoomModal.style.display = "none";
+        document.body.style.overflow = '';
         if (history.state && history.state.page === 'inner') history.back();
     }
 });
@@ -600,6 +628,7 @@ btnCancelar.addEventListener('click', () => {
     document.body.style.overflow = '';
     if (history.state && history.state.page === 'inner') history.back();
 });
+
 modalOverlay.addEventListener('click', (e) => {
     if (e.target === modalOverlay) {
         modalOverlay.style.display = 'none';
@@ -620,7 +649,9 @@ function mostrarFeedback(texto, tipo = 'success') {
     feedback.className = 'feedback';
     feedback.classList.add(tipo === 'error' ? 'error' : 'show');
     feedback.classList.add('show');
-    setTimeout(() => feedback.classList.remove('show'), 3000);
+    setTimeout(() => {
+        feedback.classList.remove('show');
+    }, 3000);
 }
 
 // Evento de Clique no Documento (Protegido contra conflitos do Modal)
@@ -634,6 +665,13 @@ document.addEventListener('click', (e) => {
     }
 });
 
+// Previne comportamento padrão de toque longo que pode causar problemas
+document.addEventListener('touchstart', function(e) {
+    if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') {
+        e.preventDefault();
+    }
+}, { passive: false });
+
 document.addEventListener('DOMContentLoaded', () => {
     try {
         const stored = localStorage.getItem('carrinho');
@@ -643,4 +681,11 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.removeItem('carrinho');
     }
     carregarProdutos();
+});
+
+// Melhoria: Fechar carrinho ao redimensionar para mobile (evita sobreposição)
+window.addEventListener('resize', () => {
+    if (window.innerWidth < 768 && carrinhoAberto) {
+        toggleCarrinho(false);
+    }
 });
